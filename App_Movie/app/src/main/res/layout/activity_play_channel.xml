@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PLayVideo.PlayChannelActivity">
+
+    <com.google.android.exoplayer2.ui.PlayerView
+        android:id="@+id/playerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        app:hide_on_touch="true"></com.google.android.exoplayer2.ui.PlayerView>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        app:lottie_autoPlay="true"
+        android:scaleX="1"
+        android:scaleY="1"
+        app:lottie_loop="true"
+        android:tint="@color/green"
+        app:lottie_rawRes="@raw/loading"
+        />
+    <ImageView
+        android:id="@+id/imgBack"
+        app:tint="@color/black"
+        android:src="@drawable/icon_left_row"
+        android:layout_width="70dp"
+        android:layout_height="70dp"/>
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_marginLeft="100dp"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        app:lottie_autoPlay="true"
+        android:scaleX="1"
+        android:scaleY="1"
+        app:lottie_loop="true"
+        android:tint="@color/green"
+        app:lottie_rawRes="@raw/live"
+        />
+    <TextView
+        android:id="@+id/tvNameChannel"
+        android:textColor="@color/white"
+        android:layout_marginLeft="210dp"
+        android:layout_marginTop="10dp"
+        android:text="Bạn đang xem kênh truyền hình: VTV1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</FrameLayout>

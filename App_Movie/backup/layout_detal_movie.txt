@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home.DetailMovieActivity">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/imgCover"
+            android:layout_width="match_parent"
+            android:src="@drawable/poster_phim"
+            android:scaleType="fitXY"
+            android:alpha="0.7"
+            android:layout_height="300dp"/>
+        <ScrollView
+            android:layout_marginTop="250dp"
+            android:layout_width="match_parent"
+            android:background="@drawable/custom_background_black"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:drawableLeft="@drawable/icon_play_video"
+                    android:paddingLeft="10dp"
+                    android:id="@+id/btnDangKy"
+                    android:layout_width="150dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="220dp"
+                    android:layout_marginRight="50dp"
+                    android:background="@drawable/custom_background_white_background"
+                    android:paddingTop="11dp"
+                    android:text="Xem ngay"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="17dp"
+                    android:textStyle="bold" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="230dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/icon_plus"
+                        android:layout_marginStart="10dp"
+                        android:layout_width="20dp"
+                        app:tint="@color/white"
+                        android:layout_height="20dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="sans-serif-thin"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginStart="10dp"
+                        android:gravity="center_vertical"
+                        android:text="Danh sách"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="70dp"
+                    android:background="#333333"
+                    android:weightSum="1"
+                    android:layout_height="50dp">
+                    <TextView
+                        android:id="@+id/tvInfor"
+                        android:layout_marginTop="15dp"
+                        android:text="Thông tin"
+                        android:textColor="@color/white"
+                        android:textAlignment="center"
+                        android:textSize="17dp"
+                        android:textStyle="bold"
+                        android:layout_weight="0.495"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+                    <LinearLayout
+                        android:layout_weight="0.01"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_width="0dp"
+                        android:background="@color/xam"
+                        android:layout_height="match_parent"/>
+                    <FrameLayout
+                        android:layout_weight="0.495"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:id="@+id/tvComment"
+                            android:layout_marginTop="15dp"
+                            android:text="Bình luận"
+                            android:textColor="@color/white"
+                            android:textAlignment="center"
+                            android:textSize="17dp"
+                            android:textStyle="bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
+                        <TextView
+                            android:id="@+id/tvNumberComment"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="140dp"
+                            android:text="10"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </FrameLayout>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ly_infor"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/tvNameMovie"
+                        android:text="Nàng tiên cá dưới biển"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="25dp"
+                        android:textSize="20dp"
+                        android:maxLines="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/tvYear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:maxLines="1"
+                        android:text="2023"
+                        android:textColor="#999999"
+                        android:textSize="15dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tvView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="25dp"
+                            android:maxLines="1"
+                            android:text="140000"
+                            android:textColor="#999999"
+                            android:textSize="15dp"/>
+
+                        <TextView
+                            android:text="Lượt xem"
+                            android:textColor="#999999"
+                            android:layout_marginLeft="5dp"
+                            android:textSize="15dp"
+                            android:maxLines="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                        </TextView>
+                        <TextView
+                            android:text="5.0"
+                            android:textColor="@color/white"
+                            android:layout_marginLeft="20dp"
+                            android:textSize="15dp"
+                            android:maxLines="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                        </TextView>
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:layout_gravity="center"
+                            android:layout_width="100dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="5dp"
+                            app:lottie_autoPlay="true"
+                            android:scaleType="fitXY"
+                            app:lottie_loop="true"
+                            app:lottie_rawRes="@raw/star_action"
+                            />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvActor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="25dp"
+                        android:text="Diễn viên: Tuấn Anh, Việt Cường, Trọng Nam, Hằng Nga, Vân Kiều, Minh Dương, Tuấn Tú, Vĩnh Đào"
+                        android:textColor="#999999"
+                        android:textSize="15dp"/>
+                    <TextView
+                        android:id="@+id/tvCategory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:maxLines="1"
+                        android:text="Thể loại phim: Phim tình cảm, tâm lý"
+                        android:textColor="#999999"
+                        android:textSize="15dp"/>
+                    <TextView
+                        android:id="@+id/tvContent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:maxLines="5"
+                        android:text="Bộ phim mở màn cho phase 5 của vũ trụ Marvel nói riêng và thể loại phim siêu anh hùng trong năm 2023 nói chung đã chính thức đổ bộ các rạp Việt Nam và quốc tế tuần vừa qua."
+                        android:textColor="@color/white"
+                        android:textSize="15dp"/>
+
+                    <TextView
+                        android:id="@+id/tvDirector"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:maxLines="1"
+                        android:text="Đạo diễn: Lê Trọng Nam"
+                        android:textColor="#999999"
+                        android:textSize="15dp" />
+
+
+                </LinearLayout>
+<!--                phần diễn viên-->
+                <LinearLayout
+                    android:id="@+id/ly_actor"
+                    android:layout_marginTop="50dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:text="Diễn viên"
+                        android:textSize="17dp"
+                        android:layout_marginLeft="25dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/ry_actor"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:layout_height="50dp"/>
+                </LinearLayout>
+<!--                phần danh sách tập phim-->
+                <LinearLayout
+                    android:id="@+id/ly_episode"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:text="Danh sách tập"
+                        android:textSize="17dp"
+                        android:layout_marginLeft="25dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/tvSizeEpisode"
+                        android:text="20 tập"
+                        android:textSize="15dp"
+                        android:layout_marginLeft="25dp"
+                        android:textStyle="normal"
+                        android:textColor="#999999"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/ry_episode"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:layout_height="130dp"/>
+                </LinearLayout>
+<!--                Phần đề xuất phim-->
+                <LinearLayout
+                    android:id="@+id/ly_propose"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/deXuat"
+                        android:text="Đề xuất cho bạn"
+                        android:textSize="17dp"
+                        android:layout_marginLeft="25dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/ry_propose"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:layout_marginTop="5dp" />
+                </LinearLayout>
+<!--            phần bình luận-->
+                <LinearLayout
+                    android:id="@+id/ly_comment"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:text="Bình luận"
+                        android:textSize="17dp"
+                        android:layout_marginLeft="25dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_weight="3"
+                        android:layout_height="50dp">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_gravity="center"
+                            app:civ_border_color="@color/green"
+                            app:civ_border_width="2dp"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:src="@drawable/poster_phim"
+                            android:layout_height="45dp"/>
+                        <EditText
+                            android:id="@+id/tvContentComment"
+                            android:layout_marginLeft="5dp"
+                            android:hint="Nhập bình luận của bạn ở đây"
+                            android:textColorHint="@color/xam"
+                            android:layout_gravity="center"
+                            android:textColor="@color/white"
+                            android:maxLines="1"
+                            android:paddingLeft="10dp"
+                            android:background="@drawable/custom_background_white_border"
+                            android:layout_weight="7.5"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"/>
+                        <ImageView
+                            android:id="@+id/btnSend"
+                            android:layout_gravity="center"
+                            android:layout_weight="1.5"
+                            android:layout_width="0dp"
+                            android:layout_height="35dp"
+                            app:lottie_autoPlay="false"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/send"
+                            />
+                    </LinearLayout>
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/ry_comment"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_height="match_parent"/>
+<!--                        layout khi chưa có bình luận nào hết-->
+                        <LinearLayout
+                            android:id="@+id/ly_comment_empty"
+                            android:layout_marginTop="15dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="2000dp">
+                            <com.airbnb.lottie.LottieAnimationView
+                                android:layout_gravity="center"
+                                android:layout_width="200dp"
+                                android:layout_height="200dp"
+                                app:lottie_loop="true"
+                                app:lottie_autoPlay="true"
+                                android:scaleType="fitXY"
+                                android:tint="@color/white"
+                                app:lottie_rawRes="@raw/comment"
+                                />
+                        <TextView
+                            android:layout_gravity="center"
+                            android:textSize="17dp"
+                            android:textColor="@color/white"
+                            android:text="Hãy là người đầu tiên bình luận"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                    </FrameLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/imgThumbnail"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="130dp"
+            android:scaleType="fitXY"
+            android:layout_width="170dp"
+            android:layout_height="260dp"
+            app:riv_corner_radius="15dp"
+            android:src="@drawable/thumnail_movie"
+            />
+    </FrameLayout>
+
+</LinearLayout>

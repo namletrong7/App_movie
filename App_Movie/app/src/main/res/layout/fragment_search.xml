@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/black"
+    tools:context=".Home.SearchFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:layout_marginTop="5dp"
+        android:layout_height="40dp">
+        <ImageView
+            android:src="@drawable/icon_left_row"
+            android:layout_weight="0.1"
+            android:layout_width="0dp"
+            android:layout_height="25dp"/>
+        <EditText
+            android:background="@drawable/custom_background_gray"
+            android:layout_weight="0.8"
+            android:layout_width="0dp"
+            android:textSize="15dp"
+            android:paddingLeft="10dp"
+            android:hint="Tên phim, show, kênh truyền hình"
+            android:textColor="@color/white"
+            android:layout_height="30dp"/>
+        <ImageView
+            android:src="@drawable/icon_search"
+            android:layout_weight="0.1"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            app:tint="@color/white"/>
+    </LinearLayout>
+     <androidx.recyclerview.widget.RecyclerView
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"/>
+</LinearLayout>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical"
+    android:weightSum="10"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9.2">
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <LinearLayout
+                android:id="@+id/layOutTrangChu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:weightSum="2"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/lottie_trangChu"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:src="@drawable/icon_home"
+                    app:tint="@color/white"
+                    android:layout_weight="1.3"
+                  />
+
+                <TextView
+                    android:id="@+id/tvTrangChu"
+                    android:layout_weight="0.7"
+                    android:text="Trang chủ"
+                    android:textSize="14dp"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutTruyenHinh"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:weightSum="2"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/lottie_truyenHinh"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.3"
+                    android:src="@drawable/icon_tivi"
+                    app:tint="#DDDDDD"
+                    />
+
+                <TextView
+                    android:id="@+id/tvTruyenHinh"
+                    android:layout_weight="0.7"
+                    android:text="Truyền hình"
+                    android:textSize="14dp"
+                    android:textColor="#DDDDDD"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutTimKiem"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:weightSum="2"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/lotie_timKiem"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.3"
+                    android:src="@drawable/icon_search"
+                    app:tint="#DDDDDD"
+                  />
+
+                <TextView
+                    android:id="@+id/tvTimKiem"
+                    android:layout_weight="0.7"
+                    android:text="Tìm kiếm"
+                    android:textSize="14dp"
+                    android:textColor="#DDDDDD"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutCaNhan"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:weightSum="2"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/lotie_caNhan"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.3"
+                    android:src="@drawable/icon_user"
+                    app:tint="#DDDDDD"
+                    />
+                <TextView
+                    android:id="@+id/tvCaNhan"
+                    android:layout_weight="0.7"
+                    android:text="Cá nhân"
+                    android:textSize="14dp"
+                    android:textColor="#DDDDDD"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout >

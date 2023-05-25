@@ -12,7 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        app:hide_on_touch="true"></com.google.android.exoplayer2.ui.PlayerView>
+        app:hide_on_touch="true">
+
+    </com.google.android.exoplayer2.ui.PlayerView>
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loading"

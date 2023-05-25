@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/custom_background_gray"
+    android:layout_height="140dp">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:layout_marginStart="16dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_profile_default"
+            android:layout_width="25dp"
+            android:layout_height="25dp"/>
+        <EditText
+            android:id="@+id/edtUserName"
+            android:fontFamily="@font/sf_pro"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:hint="Nhập tên cần thay đổi"
+            android:textColorHint="@color/xam"
+            android:textColor="#DDDDDD"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp">
+      <TextView
+          android:id="@+id/btnCancel"
+          android:fontFamily="@font/sf_pro"
+          android:layout_gravity="center"
+          android:text="Bỏ qua"
+          android:gravity="center"
+          android:textColor="@color/white"
+          android:textSize="15dp"
+          android:textStyle="bold"
+          android:background="@drawable/custom_background_white_border"
+          android:layout_width="100dp"
+          android:layout_height="40dp"/>
+        <TextView
+            android:id="@+id/btnUpdate"
+            android:fontFamily="@font/sf_pro"
+            android:layout_gravity="center"
+            android:text="Cập nhập"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:background="@drawable/custom_background_white"
+            android:layout_width="100dp"
+            android:layout_height="40dp"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/white_radius"
+    android:layout_height="wrap_content">
+
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:calendarTextColor="@color/white"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner" />
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp">
+      <TextView
+          android:id="@+id/btnCancel"
+          android:layout_gravity="center"
+          android:text="Bỏ qua"
+          android:gravity="center"
+          android:textColor="@color/white"
+          android:textSize="15dp"
+          android:fontFamily="sans-serif-medium"
+          android:background="@drawable/custom_background_white_border"
+          android:layout_width="100dp"
+          android:layout_height="40dp"/>
+        <TextView
+            android:id="@+id/btnUpdate"
+            android:layout_gravity="center"
+            android:text="Cập nhập"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:background="@drawable/custom_background_white"
+            android:layout_width="100dp"
+            android:layout_height="40dp"/>
+    </LinearLayout>
+</LinearLayout>

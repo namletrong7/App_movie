@@ -42,9 +42,40 @@ public class TvAdapter extends  RecyclerView.Adapter<TvAdapter.TVViewHolder> {
         holder.tvChannel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, TiViFragment.class);
-
+                if( holder.tvChannel.getText().equals("VTV")){
+                    TiViFragment.ry_AllChannel.setVisibility(View.GONE);
+                    TiViFragment.ry_channel.setVisibility(View.VISIBLE);
+                    TiViFragment.categoryChannel="vtv";
+                    TiViFragment.setTypeChannel();
+                    TiViFragment.adapterChannel.notifyDataSetChanged();
+                }
+                if( holder.tvChannel.getText().equals("HTV")){
+                    TiViFragment.ry_AllChannel.setVisibility(View.GONE);
+                    TiViFragment.ry_channel.setVisibility(View.VISIBLE);
+                    TiViFragment.categoryChannel="htv";
+                    TiViFragment.setTypeChannel();
+                    TiViFragment.adapterChannel.notifyDataSetChanged();
+                }
+                if( holder.tvChannel.getText().equals("VTC")){
+                    TiViFragment.ry_AllChannel.setVisibility(View.GONE);
+                    TiViFragment.ry_channel.setVisibility(View.VISIBLE);
+                    TiViFragment.categoryChannel="vtc";
+                    TiViFragment.setTypeChannel();
+                    TiViFragment.adapterChannel.notifyDataSetChanged();
+                }
+                if( holder.tvChannel.getText().equals("THVL")){
+                    TiViFragment.ry_AllChannel.setVisibility(View.GONE);
+                    TiViFragment.ry_channel.setVisibility(View.VISIBLE);
+                    TiViFragment.categoryChannel="thvl";
+                    TiViFragment.setTypeChannel();
+                    TiViFragment.adapterChannel.notifyDataSetChanged();
+                }
+                if( holder.tvChannel.getText().equals("Tất cả các kênh")){
+                    TiViFragment.ry_AllChannel.setVisibility(View.VISIBLE);
+                    TiViFragment.ry_channel.setVisibility(View.GONE);
+                }
             }
+
         });
     }
 

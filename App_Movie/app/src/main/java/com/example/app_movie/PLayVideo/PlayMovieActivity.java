@@ -1,8 +1,6 @@
 package com.example.app_movie.PLayVideo;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -13,22 +11,15 @@ import android.os.Handler;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.PopupMenu;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.example.app_movie.Adapter.TrackSelectionDialog;
 import com.example.app_movie.R;
 import com.example.app_movie.Util.Server;
 import com.google.android.exoplayer2.DefaultLoadControl;
-import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.LoadControl;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
-import com.google.android.exoplayer2.Timeline;
-import com.google.android.exoplayer2.database.ExoDatabaseProvider;
-import com.google.android.exoplayer2.source.DefaultMediaSourceFactory;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.ProgressiveMediaSource;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
@@ -36,26 +27,19 @@ import com.google.android.exoplayer2.trackselection.MappingTrackSelector;
 import com.google.android.exoplayer2.ui.DefaultTimeBar;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.ui.TimeBar;
-import com.google.android.exoplayer2.upstream.Allocator;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultAllocator;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
-import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
-import com.google.android.exoplayer2.upstream.cache.CacheDataSourceFactory;
-import com.google.android.exoplayer2.upstream.cache.LeastRecentlyUsedCacheEvictor;
-import com.google.android.exoplayer2.upstream.cache.NoOpCacheEvictor;
 import com.google.android.exoplayer2.upstream.cache.SimpleCache;
 import com.google.android.exoplayer2.util.Util;
 
-import java.util.ArrayList;
 import java.util.Formatter;
-import java.util.List;
 import java.util.Locale;
 
 public class PlayMovieActivity extends AppCompatActivity {
     ImageView imgTang10, imgGiam10, imgPlay, imgfullScreen, imgSettingQuality;
     DefaultTimeBar sb_time;
-    TextView tvCurrentTime, tvDurationTime;
+    TextView tvCurrentTime, tvDurationTime,tvNameEpisode;
     Boolean flag = true;
     Boolean flagPlay = true;
     SimpleExoPlayer player;
@@ -68,12 +52,14 @@ public class PlayMovieActivity extends AppCompatActivity {
     private boolean isShowingTrackSelectionDialog;
     DefaultLoadControl loadControl;
     SimpleCache simpleCache;
-
+    String linkEpisode , nameEpisode ;
+    int numberEpisode ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_movie);
         init();
+        getEpisode();
         playVideo();
         setFullScreen();
         setTime();
@@ -92,17 +78,18 @@ public class PlayMovieActivity extends AppCompatActivity {
 
         imgSettingQuality = findViewById(R.id.imgSettingQuality);
         loading = findViewById(R.id.loading);
-        loading.setColorFilter(ContextCompat.getColor(this, R.color.white), android.graphics.PorterDuff.Mode.MULTIPLY);
+     //   loading.setColorFilter(ContextCompat.getColor(this, R.color.green_sang), android.graphics.PorterDuff.Mode.MULTIPLY);
         imgTang10 = findViewById(R.id.imgTang10);
         imgGiam10 = findViewById(R.id.imgGiam10);
         imgPlay = findViewById(R.id.imgPlay);
         imgPlay.setImageResource(R.drawable.icon_pause);
         imgfullScreen = findViewById(R.id.imgFullScreen);
 
+  //      sb_time.setBufferedPosition(player.getBufferedPosition());
         sb_time = findViewById(R.id.sb_time);
         sb_time.setPlayedColor(Color.parseColor("#FFFFFF")); // Màu sắc phần đã phát
         sb_time.setScrubberColor(Color.parseColor("#FFFFFF")); // Màu sắc thanh kéo
-        sb_time.setBufferedColor(Color.parseColor("#FFFFFF")); // Màu sắc phần đã đệm
+        sb_time.setBufferedColor(Color.parseColor("#99FFCC")); // Màu sắc phần đã đệm
         sb_time.setAdMarkerColor(Color.parseColor("#808080")); // Màu s
 
         tvCurrentTime = findViewById(R.id.tvCurrentTime);
@@ -110,16 +97,21 @@ public class PlayMovieActivity extends AppCompatActivity {
         playerView = findViewById(R.id.playerView);
         player = new SimpleExoPlayer.Builder(this).setLoadControl(loadControl).build();
         playerView.setPlayer(player);
-
+       tvNameEpisode= findViewById(R.id.tvNameEpisode);
 
     }
+   public void getEpisode(){
+       Intent intent = getIntent();
+       Bundle bundle = intent.getExtras();
+       // lấy link episode từ adapter episode gửi về
+        linkEpisode = bundle.getString("linkEpisode");
+        nameEpisode=bundle.getString("nameEpisode");
+        numberEpisode=bundle.getInt("numberEpisode");
+        tvNameEpisode.setText("Tập "+numberEpisode+": "+nameEpisode);
+   }
 
     public void playVideo() {
 
-
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        String linkEpisode = bundle.getString("linkEpisode");
         String path = Server.getLinkEpisode + linkEpisode;
         String userAgent = Util.getUserAgent(this, "yourApplicationName");
         DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this, userAgent);
@@ -198,22 +190,22 @@ public class PlayMovieActivity extends AppCompatActivity {
 
 
     }
-
-    public void settingQuality() {
-        imgSettingQuality.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MappingTrackSelector.MappedTrackInfo mappedTrackInfo = trackSelector.getCurrentMappedTrackInfo();
-                if (mappedTrackInfo != null) {
-                    if (!isShowingTrackSelectionDialog && TrackSelectionDialog.willHaveContent(trackSelector)) {
-                        isShowingTrackSelectionDialog = true;
-                        TrackSelectionDialog trackSelectionDialog = TrackSelectionDialog.createForTrackSelector(trackSelector,/* onDismissListener= */ dismissedDialog -> isShowingTrackSelectionDialog = false);
-                        trackSelectionDialog.show(getSupportFragmentManager(), /* tag= */ null);
-                    }
-                }
-            }
-        });
-    }
+//
+//    public void settingQuality() {
+//        imgSettingQuality.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                MappingTrackSelector.MappedTrackInfo mappedTrackInfo = trackSelector.getCurrentMappedTrackInfo();
+//                if (mappedTrackInfo != null) {
+//                    if (!isShowingTrackSelectionDialog && TrackSelectionDialog.willHaveContent(trackSelector)) {
+//                        isShowingTrackSelectionDialog = true;
+//                        TrackSelectionDialog trackSelectionDialog = TrackSelectionDialog.createForTrackSelector(trackSelector,/* onDismissListener= */ dismissedDialog -> isShowingTrackSelectionDialog = false);
+//                        trackSelectionDialog.show(getSupportFragmentManager(), /* tag= */ null);
+//                    }
+//                }
+//            }
+//        });
+//    }
 
     private void setTime() {  // láy thời gian thực tại và độ dài của video
         handler = new Handler();

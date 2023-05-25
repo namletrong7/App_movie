@@ -8,22 +8,27 @@
     android:background="@color/black"
     android:orientation="vertical"
     tools:context=".Login.LoginActivity">
+    <FrameLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
         <TextView
+            android:gravity="center"
+            android:fontFamily="@font/baloo_da"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/icon_left_row"
+            android:layout_height="match_parent"
             android:text="Đăng nhập"
-            android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="20dp"
             app:drawableTint="@color/white" />
+    </FrameLayout>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginTop="10dp"
             android:scaleType="fitXY"
-            android:src="@drawable/preview" />
+            android:src="@drawable/poster" />
 
 
         <LinearLayout
@@ -40,35 +45,51 @@
                 android:id="@+id/edtPhoneNumber"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:textStyle="bold"
                 android:background="@drawable/custom_background_white_border"
                 android:drawableLeft="@drawable/icon_phone_number"
                 android:drawablePadding="20dp"
                 android:drawableTint="@color/white"
                 android:drawableTintMode="multiply"
+                android:fontFamily="@font/sf_pro"
                 android:hint="Số điện thoại"
                 android:inputType="phone"
                 android:lines="1"
+                android:maxLength="10"
                 android:paddingLeft="10dp"
                 android:textColor="@color/white"
                 android:textColorHint="#777777" />
 
+            <TextView
+                 android:id="@+id/tvMessagePhone"
+                 android:textAlignment="textEnd"
+                 android:textSize="15dp"
+                 android:fontFamily="@font/sf_pro"
+                 android:textColor="#FF0000"
+                android:textStyle="bold"
+                 android:text="số điện thoại có 10 chữ số"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"/>
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="10dp">
 
                 <EditText
                     android:id="@+id/edtPassword"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:fontFamily="@font/sf_pro"
                     android:background="@drawable/custom_background_white_border"
-                    android:drawableLeft="@drawable/icon_key"
+                    android:drawableLeft="@drawable/icon_key_khoa"
                     android:drawablePadding="20dp"
                     android:drawableTint="@color/white"
                     android:drawableTintMode="multiply"
                     android:hint="Mật khẩu"
                     android:inputType="textPassword"
                     android:lines="1"
+                    android:textStyle="bold"
+                    android:maxLength="20"
                     android:paddingLeft="10dp"
                     android:textColor="@color/white"
                     android:textColorHint="#777777" />
@@ -83,12 +104,22 @@
                     android:src="@drawable/icon_eye_hiden" />
 
             </FrameLayout>
-
+            <TextView
+                android:id="@+id/tvMessagePass"
+                android:textAlignment="textEnd"
+                android:textSize="15dp"
+                android:textColor="#FF0000"
+                android:textStyle="bold"
+                android:fontFamily="@font/sf_pro"
+                android:text="Mật khẩu tối thiểu 6 ký tự"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
             <TextView
                 android:id="@+id/tvForgotPass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
+                android:fontFamily="@font/sf_pro"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:text="Quên mật khẩu ?"
@@ -98,14 +129,16 @@
 
             <TextView
                 android:id="@+id/btnLogin"
+                android:fontFamily="@font/sf_pro"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/custom_background_gray"
-                android:paddingTop="10dp"
+                android:gravity="center"
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="10dp"
+                android:background="@drawable/custom_background_green_toi"
                 android:text="Đăng nhập"
-                android:textAlignment="center"
-                android:textColor="#999999"
+                android:textColor="@color/white"
                 android:textSize="17dp"
                 android:textStyle="bold" />
 
@@ -117,6 +150,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:fontFamily="@font/sf_pro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -129,6 +163,7 @@
 
                 <TextView
                     android:id="@+id/tvSignUp"
+                    android:fontFamily="@font/sf_pro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"

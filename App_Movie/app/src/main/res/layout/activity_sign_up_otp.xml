@@ -8,16 +8,27 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".Login.SignUpOTPActivity">
-    <TextView
+    <FrameLayout
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/icon_left_row"
-        android:text="Đăng ký"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:paddingLeft="20dp"
-        app:drawableTint="@color/white" />
+        android:layout_height="40dp">
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Đăng nhập"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:drawableTint="@color/white" />
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/icon_left_row" />
+    </FrameLayout>
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lotie_timKiem"
         android:layout_gravity="center"
@@ -31,6 +42,8 @@
       >
     </com.airbnb.lottie.LottieAnimationView>
     <TextView
+        android:id="@+id/tvPhone"
+        android:fontFamily="@font/baloo_da"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
         android:textColor="@color/white"
@@ -136,6 +149,8 @@
             android:layout_height="50dp"/>
     </LinearLayout>
     <TextView
+        android:fontFamily="@font/archivo_black"
+        android:id="@+id/tvResendOTP"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
         android:textColor="@color/white"
@@ -145,23 +160,27 @@
         android:text="Gửi lại OTP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
     <TextView
+        android:fontFamily="@font/baloo_da"
         android:id="@+id/tvMessage"
-        android:layout_marginTop="15dp"
-        android:layout_gravity="center"
-        android:textColor="#FF0000"
-        android:textAlignment="center"
-        android:textSize="13dp"
-        android:text="Mã OTP chưa đúng"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:text="Mã OTP chưa đúng"
+        android:textAlignment="center"
+        android:textColor="#FF0000"
+        android:textSize="13dp" />
+
     <TextView
         android:id="@+id/btnContinue"
+        android:fontFamily="@font/baloo_da"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
         android:background="@drawable/custom_background_green"
         android:paddingTop="10dp"
         android:text="Tiếp tục"

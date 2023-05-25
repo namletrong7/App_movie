@@ -3,24 +3,24 @@ package com.example.app_movie.Model;
 import java.io.Serializable;
 
 public class device implements Serializable {
-    int idDevice ;
-            String phoneNumber, nameDevice , timeDateSignIn  ;
+    String idDevice ;
+    String phoneNumber, nameDevice , timeDateSignIn  ;
 
     public device() {
     }
 
-    public device(int idDevice, String phoneNumber, String nameDevice, String timeDateSignIn) {
+    public device(String idDevice, String phoneNumber, String nameDevice, String timeDateSignIn) {
         this.idDevice = idDevice;
         this.phoneNumber = phoneNumber;
         this.nameDevice = nameDevice;
         this.timeDateSignIn = timeDateSignIn;
     }
 
-    public int getIdDevice() {
+    public String getIdDevice() {
         return idDevice;
     }
 
-    public void setIdDevice(int idDevice) {
+    public void setIdDevice(String idDevice) {
         this.idDevice = idDevice;
     }
 

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".Personal.ListFavoriteActivity">
+    <FrameLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <TextView
+            android:fontFamily="@font/baloo_da"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingRight="10dp"
+            android:text="Danh sách của tôi"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:drawableTint="@color/white" />
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/icon_left_row"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+    </FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginHorizontal="5dp"
+        android:id="@+id/ry_listFavorite"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

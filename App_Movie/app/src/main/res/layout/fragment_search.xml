@@ -1,40 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:background="@color/black"
-    tools:context=".Home.SearchFragment">
+    tools:context=".Home.SearchFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+   >
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:weightSum="1"
         android:layout_marginTop="5dp"
-        android:layout_height="40dp">
-        <ImageView
-            android:src="@drawable/icon_left_row"
-            android:layout_weight="0.1"
-            android:layout_width="0dp"
-            android:layout_height="25dp"/>
+        android:layout_height="60dp">
         <EditText
+            android:id="@+id/edtNameMovie"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/sf_pro"
             android:background="@drawable/custom_background_gray"
-            android:layout_weight="0.8"
+            android:layout_weight="0.9"
             android:layout_width="0dp"
             android:textSize="15dp"
             android:paddingLeft="10dp"
+            android:textColorHint="@color/gray"
             android:hint="Tên phim, show, kênh truyền hình"
             android:textColor="@color/white"
-            android:layout_height="30dp"/>
+            android:layout_height="40dp"/>
         <ImageView
+            android:id="@+id/btnSearch"
+            android:layout_gravity="center"
             android:src="@drawable/icon_search"
             android:layout_weight="0.1"
             android:layout_width="0dp"
+            android:layout_marginBottom="10dp"
             android:layout_height="30dp"
             app:tint="@color/white"/>
     </LinearLayout>
-     <androidx.recyclerview.widget.RecyclerView
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="5dp"
+        android:layout_height="60dp">
+        <TextView
+            android:text="Lịch sử tìm kiếm"
+            android:textColor="@color/white"
+            android:fontFamily="@font/sf_pro"
+            android:textStyle="bold"
+            android:textSize="17dp"
+            android:paddingLeft="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/ry_historySearch"
+            android:layout_marginTop="3dp"
+            android:paddingLeft="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+    <TextView
+        android:text="Kết quả tìm kiếm"
+        android:textColor="@color/white"
+        android:fontFamily="@font/sf_pro"
+        android:textStyle="bold"
+        android:textSize="17dp"
+        android:paddingLeft="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <FrameLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginHorizontal="5dp"
+            android:id="@+id/ry_movie"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <LinearLayout
+            android:id="@+id/ly_no_result"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:src="@drawable/ic_sad_cat"
+                android:layout_gravity="center"
+                android:layout_width="210dp"
+                android:layout_height="100dp"/>
+            <TextView
+                android:text="Không có kết quả tìm kiếm"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:fontFamily="@font/sf_pro"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </FrameLayout>
+
 </LinearLayout>
+</ScrollView>

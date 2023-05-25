@@ -1,21 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Home.TiViFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:background="@color/black"
-    android:orientation="vertical"
-    tools:context=".Home.TiViFragment">
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/ry_Categorychannel"
-        android:layout_marginTop="55dp"
+    android:layout_height="match_parent">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="35dp"/>
-     <androidx.recyclerview.widget.RecyclerView
-         android:id="@+id/ry_channel"
-         android:layout_marginTop="10dp"
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="10"
+        >
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/ry_Categorychannel"
+            android:layout_marginTop="55dp"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="match_parent">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ry_channel"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ry_AllChannel"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </FrameLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
 
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -7,299 +7,176 @@
     android:background="@color/black"
     android:orientation="vertical"
     tools:context=".Home.HomeFragment">
-    <ScrollView
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
-<!--                phần slider phim thịnh hành-->
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!--                phần slider phim thịnh hành-->
             <FrameLayout
-                android:layout_marginTop="100dp"
+                android:id="@+id/ly_frame"
                 android:layout_width="match_parent"
-                android:layout_height="500dp">
-                <androidx.viewpager.widget.ViewPager
+                android:layout_height="450dp"
+                android:layout_marginTop="0dp">
+                <ImageView
+                    android:id="@+id/imgBackground"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:scaleX="2.3"
+                    android:scaleY="2.3"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/poster_movie"
+                     />
+
+                <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/viewPager"
-                    />
+                    android:layout_marginTop="50dp"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/background_empty"
+                    android:layout_height="400dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="horizontal" />
+                <me.relex.circleindicator.CircleIndicator3
+                    android:id="@+id/indicator"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginRight="70dp"
+                    android:layout_gravity="bottom"
+                    android:layout_width="match_parent"
+                    app:ci_gravity="center"
+                    app:ci_drawable="@color/white"
+                    android:layout_height="30dp"/>
             </FrameLayout>
 
             <!--      phần phim thịnh hành-->
             <LinearLayout
-                android:layout_marginTop="20dp"
+                android:id="@+id/ly_thinhHang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
+                android:layout_below="@id/ly_frame"
+                android:orientation="vertical">
+
                 <LinearLayout
-                    android:orientation="horizontal"
-                    android:weightSum="10"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
                     <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="9.5"
+                        android:fontFamily="@font/baloo_da"
+                        android:paddingLeft="16dp"
                         android:text="THỊNH HÀNH"
-                        android:textSize="20dp"
                         android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:layout_width="0dp"
-                        android:layout_weight="9.5"
-                        android:layout_height="wrap_content"/>
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
                     <ImageView
-                        android:src="@drawable/right_row"
-                        android:layout_weight="0.5"
+                        android:id="@+id/btn"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        />
+                        android:layout_weight="0.5"
+                        android:src="@drawable/right_row" />
                 </LinearLayout>
+
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/ly_thinhHanh"
+                    android:id="@+id/ry_thinhHanh"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"/>
+                    android:layout_height="180dp" />
             </LinearLayout>
+
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_below="@+id/ly_thinhHang"
+                    android:id="@+id/ry_categoryMovie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
             <LinearLayout
-                android:layout_marginTop="20dp"
+                android:id="@+id/ly_tivi"
+                android:layout_below="@+id/ry_categoryMovie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
                 <LinearLayout
-                    android:orientation="horizontal"
-                    android:weightSum="10"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
                     <TextView
-                        android:text="HÀNH ĐÔNG"
-                        android:textSize="20dp"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/baloo_da"
                         android:layout_width="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="9.5"
-                        android:layout_height="wrap_content"/>
+                        android:paddingLeft="16dp"
+                        android:text="KÊNH TRUYỀN HÌNH"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
                     <ImageView
-                        android:src="@drawable/right_row"
-                        android:layout_weight="0.5"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        />
+                        android:layout_weight="0.5"
+                        android:src="@drawable/right_row" />
                 </LinearLayout>
+
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/ry_channel"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"/>
+                    android:layout_height="150dp" />
             </LinearLayout>
+
             <LinearLayout
-                android:layout_marginTop="20dp"
+                android:layout_below="@+id/ly_tivi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
                 <LinearLayout
-                    android:orientation="horizontal"
-                    android:weightSum="10"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
                     <TextView
-                        android:text="TÌNH CẢM"
-                        android:textSize="20dp"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/baloo_da"
                         android:layout_width="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="9.5"
-                        android:layout_height="wrap_content"/>
+                        android:paddingLeft="16dp"
+                        android:text="DANH SÁCH CỦA BẠN"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
                     <ImageView
-                        android:src="@drawable/right_row"
-                        android:layout_weight="0.5"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        />
-                </LinearLayout>
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:weightSum="10"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:text="TRUYỀN HÌNH"
-                        android:textSize="20dp"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:layout_width="0dp"
-                        android:layout_weight="9.5"
-                        android:layout_height="wrap_content"/>
-                    <ImageView
-                        android:src="@drawable/right_row"
                         android:layout_weight="0.5"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        />
+                        android:src="@drawable/right_row" />
                 </LinearLayout>
+
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/ry_favoriteMovie"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"/>
+                    android:layout_height="300dp" />
             </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:weightSum="10"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:text="PHIM BỘ"
-                        android:textSize="20dp"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:layout_width="0dp"
-                        android:layout_weight="9.5"
-                        android:layout_height="wrap_content"/>
-                    <ImageView
-                        android:src="@drawable/right_row"
-                        android:layout_weight="0.5"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        />
-                </LinearLayout>
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:weightSum="10"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:text="KHOA HỌC"
-                        android:textSize="20dp"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:layout_width="0dp"
-                        android:layout_weight="9.5"
-                        android:layout_height="wrap_content"/>
-                    <ImageView
-                        android:src="@drawable/right_row"
-                        android:layout_weight="0.5"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        />
-                </LinearLayout>
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:weightSum="10"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:text="MA KINH DỊ"
-                        android:textSize="20dp"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:layout_width="0dp"
-                        android:layout_weight="9.5"
-                        android:layout_height="wrap_content"/>
-                    <ImageView
-                        android:src="@drawable/right_row"
-                        android:layout_weight="0.5"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        />
-                </LinearLayout>
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:weightSum="10"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:text="VIÊN TƯỞNG"
-                        android:textSize="20dp"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:layout_width="0dp"
-                        android:layout_weight="9.5"
-                        android:layout_height="wrap_content"/>
-                    <ImageView
-                        android:src="@drawable/right_row"
-                        android:layout_weight="0.5"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        />
-                </LinearLayout>
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:weightSum="10"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:text="ANIME"
-                        android:textSize="20dp"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:layout_width="0dp"
-                        android:layout_weight="9.5"
-                        android:layout_height="wrap_content"/>
-                    <ImageView
-                        android:src="@drawable/right_row"
-                        android:layout_weight="0.5"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        />
-                </LinearLayout>
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"/>
-            </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

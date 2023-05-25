@@ -6,7 +6,7 @@ public class comment {
     String contentComment;
     String avatar ;
 
-    public comment(Integer o, int id, String phone, String content, String avatar) {
+    public comment() {
     }
 
     public comment(int idComment, int idMovie, String phoneNumber, String contentComment,String avatar) {

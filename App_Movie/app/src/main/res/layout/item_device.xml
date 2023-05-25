@@ -22,7 +22,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="5dp"
-                android:src="@drawable/icon_phone"
+                android:src="@drawable/ic_phone_device"
                 app:tint="@color/green" />
             <TextView
                 android:id="@+id/tvNameDevie"

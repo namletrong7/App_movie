@@ -25,43 +25,46 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SliderAdapter extends PagerAdapter  {
-    Context context;
-    ArrayList<movie> list;
+public class SliderAdapter extends  RecyclerView.Adapter<SliderAdapter.movieViewHolder> {
+    Context context ;
+    ArrayList<movie> list ;
 
     public SliderAdapter(Context context, ArrayList<movie> list) {
         this.context = context;
         this.list = list;
     }
 
-    @SuppressLint("MissingInflatedId")
+
     @NonNull
     @Override
-    public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        View view=LayoutInflater.from(context).inflate(R.layout.item_slider, container, false);
-        RoundedImageView imgThum = view.findViewById(R.id.imgThumbnailMovie);
-        movie Movie = list.get(position);
-        String linkThumbnail = Server.getThumbnail + Movie.getThumbnailMovie();
-        Picasso.get().load(linkThumbnail).into(imgThum);
-        container.addView(view);
-        return view ;
+    public SliderAdapter.movieViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(context).inflate
+                (R.layout.item_slider, parent, false);
+        return new SliderAdapter.movieViewHolder(v);
     }
 
 
     @Override
-    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        container.removeView((View) object);
+    public void onBindViewHolder(@NonNull SliderAdapter.movieViewHolder holder, @SuppressLint("RecyclerView") int position) {
+        movie Movie=list.get(position);
+        int id =Movie.getIdMovie();
+        String linkThumbnail= Server.getThumbnail+Movie.getThumbnailMovie();
+        Picasso.get().load(linkThumbnail).into(holder.imgThumbnail);
+
     }
 
-
     @Override
-    public int getCount() {
+    public int getItemCount() {
         return list.size();
     }
 
+    public class movieViewHolder extends RecyclerView.ViewHolder {
+        public RoundedImageView imgThumbnail ;
 
-    @Override
-    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return view==object;
+        public movieViewHolder(@NonNull View itemView) {
+            super(itemView);
+            imgThumbnail=itemView.findViewById(R.id.imgThumbnailMovie);
+
+        }
     }
 }

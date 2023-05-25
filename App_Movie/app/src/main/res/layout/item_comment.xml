@@ -4,38 +4,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/black"
     android:orientation="horizontal"
-    android:layout_marginTop="4dp"
+    android:layout_marginTop="10dp"
     android:layout_height="wrap_content">
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imgAvatar"
         android:layout_width="40dp"
         android:src="@drawable/poster_phim"
-        app:civ_border_color="@color/green"
-        app:civ_border_width="1dp"
         android:layout_height="40dp"/>
-    <LinearLayout
+    <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
+            android:fontFamily="@font/sf_pro"
             android:id="@+id/tvPhone"
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
             android:text="0337356550"
-            android:textSize="17dp"
-            android:textColor="@color/white"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:id="@+id/tvContent"
-            android:layout_marginLeft="10dp"
-            android:textStyle="normal"
-            android:text="phim chả hay gì cả , như con ma ý "
             android:textSize="15dp"
             android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-    </LinearLayout>
+        <TextView
+           android:layout_below="@+id/tvPhone"
+            android:fontFamily="@font/sf_pro"
+            android:id="@+id/tvContent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="7dp"
+            android:textStyle="normal"
+            android:text="Wao thật là hay quággggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg "
+            android:textSize="13dp"
+            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
 
 
 </LinearLayout>

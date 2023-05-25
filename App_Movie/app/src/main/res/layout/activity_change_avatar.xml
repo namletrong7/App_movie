@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".Personal.ChangeAvatarActivity"
+    android:background="@drawable/custom_background_gray"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Đổi ảnh đại diện"
+            android:fontFamily="@font/sf_pro"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="normal"
+            app:drawableTint="@color/white" />
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/icon_left_row"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+    </FrameLayout>
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/imgNewAvatar"
+        android:layout_width="180dp"
+        android:layout_height="230dp"
+        android:layout_gravity="center"
+        app:riv_corner_radius="10dp"
+        android:scaleType="fitXY"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/poster" />
+
+    <FrameLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="250dp"
+        android:layout_gravity="center"
+        android:layout_height="40dp">
+        <TextView
+            android:id="@+id/tvUpLoadImg"
+            android:fontFamily="@font/sf_pro"
+            android:layout_gravity="center"
+            android:text="Tải ảnh lên"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:background="@drawable/custom_background_green_sang"
+            android:layout_width="250dp"
+            android:layout_height="40dp"/>
+        <ImageView
+            android:layout_marginLeft="70dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/plus_solid"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:tint="@color/black" />
+    </FrameLayout>
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp">
+        <TextView
+            android:fontFamily="@font/sf_pro"
+            android:id="@+id/btnCancel"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:text="Bỏ qua"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:background="@drawable/custom_background_white_border"
+            android:layout_width="100dp"
+            android:layout_height="40dp"/>
+        <TextView
+            android:id="@+id/btnUpdate"
+            android:fontFamily="@font/sf_pro"
+            android:layout_gravity="center"
+            android:text="Cập nhập"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:background="@drawable/custom_background_white"
+            android:layout_width="100dp"
+            android:layout_height="40dp"/>
+    </LinearLayout>
+    <ProgressBar
+        android:id="@+id/loading"
+        android:visibility="invisible"
+        android:layout_gravity="center"
+        android:layout_width="50dp"
+        android:layout_height="60dp"/>
+</LinearLayout>

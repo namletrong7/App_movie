@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -54,10 +55,13 @@ public class EpisodeAdapter extends RecyclerView.Adapter<EpisodeAdapter.episodeV
                   Intent intent = new Intent(context, PlayMovieActivity.class);
                   Bundle bundle = new Bundle();
                   bundle.putString("linkEpisode",linkEpisode);
+                  bundle.putString("nameEpisode",Episode.getNameEpisode());
+                  bundle.putInt("numberEpisode",Episode.getNumberEpisode());
                   intent.putExtras(bundle);
                   context.startActivity(intent);
               }
           });
+
     }
 
     @Override
@@ -69,7 +73,7 @@ public class EpisodeAdapter extends RecyclerView.Adapter<EpisodeAdapter.episodeV
        public RoundedImageView imgThumnailEpisode ;
        public TextView tvNumberEpisode , tvNameEpisode ;
 
-        public episodeViewHolder(@NonNull View itemView) {
+       public episodeViewHolder(@NonNull View itemView) {
             super(itemView);
             imgThumnailEpisode = itemView.findViewById(R.id.imgThumbnailEpisode);
             tvNumberEpisode = itemView.findViewById(R.id.tvNumberEpisode);

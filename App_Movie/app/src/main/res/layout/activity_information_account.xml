@@ -1,9 +1,218 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".Personal.InformationAccountActivity">
+    <FrameLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Thông tin tài khoản"
+            android:fontFamily="@font/baloo_da"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:drawableTint="@color/white" />
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/icon_left_row"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+    </FrameLayout>
+    <LinearLayout
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            app:tint="@color/gray"
+            android:layout_marginStart="16dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_phone"
+            android:layout_width="25dp"
+            android:layout_height="25dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/sf_pro"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:text="Số điện thoại"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tvPhoneNumber"
+            android:paddingTop="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableEnd="@drawable/right_row"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/sf_pro"
+            android:gravity="right"
+            android:text="0337356550"
+            android:textColor="#66CC66"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            app:tint="@color/gray"
+            android:layout_marginStart="16dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/icon_person"
+            android:layout_width="25dp"
+            android:layout_height="25dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/sf_pro"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:text="Tên"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvUserName"
+            android:paddingTop="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableEnd="@drawable/right_row"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/sf_pro"
+            android:gravity="right"
+            android:text="Trọng Nam"
+            android:textColor="@color/gray"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            app:tint="@color/gray"
+            android:layout_marginStart="16dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/icon_key"
+            android:layout_width="25dp"
+            android:layout_height="25dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/sf_pro"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:text="Mật khẩu"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvPassword"
+            android:paddingTop="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableEnd="@drawable/right_row"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/sf_pro"
+            android:gravity="right"
+            android:inputType="textPassword"
+            android:textColor="@color/gray"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            app:tint="@color/gray"
+            android:layout_marginStart="16dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/icon_sex"
+            android:layout_width="25dp"
+            android:layout_height="25dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/sf_pro"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:text="Giới tính"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvSex"
+            android:paddingTop="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableEnd="@drawable/right_row"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/sf_pro"
+            android:gravity="right"
+            android:textColor="@color/gray"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            app:tint="@color/gray"
+            android:layout_marginStart="16dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/icon_calender"
+            android:layout_width="25dp"
+            android:layout_height="25dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/sf_pro"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:text="Ngày sinh"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvBirthday"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableEnd="@drawable/right_row"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/sf_pro"
+            android:gravity="right"
+            android:paddingTop="14dp"
+            android:text="10/08/2001"
+            android:textColor="@color/gray"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

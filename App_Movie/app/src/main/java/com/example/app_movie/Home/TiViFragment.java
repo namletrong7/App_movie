@@ -11,6 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.Switch;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -21,8 +24,10 @@ import com.android.volley.toolbox.Volley;
 import com.example.app_movie.Adapter.TvAdapter;
 import com.example.app_movie.Adapter.channelAdapter;
 import com.example.app_movie.Model.channel;
+import com.example.app_movie.Model.movie;
 import com.example.app_movie.R;
 import com.example.app_movie.Util.Server;
+import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,12 +38,14 @@ import java.util.ArrayList;
 
 public class TiViFragment extends Fragment {
 
-    RecyclerView ry_Categorychannel,ry_channel;
+    public static RecyclerView ry_Categorychannel,ry_channel,ry_AllChannel;
     View view ;
     ArrayList<String> listCategory ;
     TvAdapter adapterTV ;
-    ArrayList<channel> listChannel ;
-    channelAdapter adapterChannel ;
+    Spinner spinner_category ;
+   public static ArrayList<channel> listAllChannel, listChannel ;
+    public static   channelAdapter adapterChannel, adapterAllChannel ;
+    public static  String categoryChannel ;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -52,12 +59,9 @@ public class TiViFragment extends Fragment {
         listCategory=new ArrayList<>();
         listCategory.add("VTV");
         listCategory.add("HTV");
-        listCategory.add("VTVAcab");
-        listCategory.add("VTV");
-        listCategory.add("HTVC");
+        listCategory.add("VTC");
         listCategory.add("THVL");
-        listCategory.add("Khác");
-        listCategory.add("Địa phương");
+        listCategory.add("Tất cả các kênh");
         adapterTV=new TvAdapter(getContext(), listCategory);
         ry_Categorychannel=view.findViewById(R.id.ry_Categorychannel);
         ry_Categorychannel.setAdapter(adapterTV);
@@ -65,12 +69,64 @@ public class TiViFragment extends Fragment {
                 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         ry_Categorychannel.setLayoutManager(layoutManager);
 
+
         // phần channel
-        ry_channel= view.findViewById(R.id.ry_channel);
+        ry_channel= view.findViewById(R.id.ry_channel); ry_channel.setVisibility(View.GONE);
         listChannel=new ArrayList<>();
         adapterChannel=new channelAdapter(getContext(), listChannel);
         ry_channel.setLayoutManager(new GridLayoutManager(getContext(), 2));
         ry_channel.setAdapter(adapterChannel);
+       // phần tất cả các kênh
+        ry_AllChannel= view.findViewById(R.id.ry_AllChannel);
+        listAllChannel=new ArrayList<>();
+        adapterAllChannel=new channelAdapter(getContext(), listAllChannel);
+        ry_AllChannel.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        ry_AllChannel.setAdapter(adapterAllChannel);
+
+    }
+    public static void setTypeChannel(){
+          switch (categoryChannel){
+            case "vtv":{  // chỉ lấy danh sách kênh VTV
+                 listChannel.clear();
+                 for(channel Channel: listAllChannel){
+                     if(Channel.getTypeChannel().equals("vtv")){
+                         listChannel.add(Channel);
+                     }
+                 }
+                 break ;
+
+            }
+              case "htv":{  // chỉ lấy danh sách kênh VTC
+                  listChannel.clear();
+                  for(channel Channel: listAllChannel){
+                      if(Channel.getTypeChannel().equals("htv")){
+                          listChannel.add(Channel);
+                      }
+                  }
+             break ;
+              }
+              case "vtc":{  // chỉ lấy danh sách kênh VTC
+                  listChannel.clear();
+                  for(channel Channel: listAllChannel){
+                      if(Channel.getTypeChannel().equals("vtc")){
+                          listChannel.add(Channel);
+                      }
+                  }
+                  break ;
+              }
+              case "thvl":{  // chỉ lấy danh sách kênh VTC
+                  listChannel.clear();
+                  for(channel Channel: listAllChannel){
+                      if(Channel.getTypeChannel().equals("thvl")){
+                          listChannel.add(Channel);
+                      }
+                  }
+                  break ;
+              }
+
+
+        }
+
     }
     public void getDataChannel(){
         String url = Server.getChannel;
@@ -79,25 +135,28 @@ public class TiViFragment extends Fragment {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                         listChannel.clear();
+                        listAllChannel.clear();
                          if(response!=null){
                              for(int i = 0 ; i<= response.length();i++){
                                  try {
                                      JSONObject jsonObject = response.getJSONObject(i);
-                                     int id = jsonObject.getInt("idChannel");
-                                     String nameChannel=jsonObject.getString("nameChannel");
-                                     String thumbnailChannel=jsonObject.getString("thumbnailChannel");
-                                     String linkChannel=jsonObject.getString("linkChannel");
-                                     String typeChannel=jsonObject.getString("typeChannel");
-                                     String contentChannel=jsonObject.getString("contentChannel");
-                                     channel Channel = new channel(id, nameChannel,thumbnailChannel,linkChannel,typeChannel,contentChannel);
-                                     listChannel.add(Channel);
+//                                     int id = jsonObject.getInt("idChannel");
+//                                     String nameChannel=jsonObject.getString("nameChannel");
+//                                     String thumbnailChannel=jsonObject.getString("thumbnailChannel");
+//                                     String linkChannel=jsonObject.getString("linkChannel");
+//                                     String typeChannel=jsonObject.getString("typeChannel");
+//                                     String contentChannel=jsonObject.getString("contentChannel");
+//                                     channel Channel = new channel(id, nameChannel,thumbnailChannel,linkChannel,typeChannel,contentChannel);
+                                     channel Channel = new channel();
+                                     Gson gson = new Gson();
+                                     Channel = gson.fromJson(jsonObject.toString(), channel.class);
+                                     listAllChannel.add(Channel);
                                  } catch (JSONException e) {
                                      e.printStackTrace();
                                  }
 
                              }
-                             adapterChannel.notifyDataSetChanged();
+                             adapterAllChannel.notifyDataSetChanged();
                          }
                     }
                 },
@@ -109,5 +168,6 @@ public class TiViFragment extends Fragment {
                 }
         );
         requestQueue.add(jsonArrayRequest);
+
     }
 }

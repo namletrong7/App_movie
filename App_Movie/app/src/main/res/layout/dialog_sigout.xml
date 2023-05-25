@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginLeft="40dp"
+    android:layout_marginRight="40dp"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/custom_background_gray"
+    android:layout_height="wrap_content">
+    <View
+        android:background="#FFFF66"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="#555555"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lotie_timKiem"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/cat_sleep" />
+    </LinearLayout>
+    <TextView
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/sf_pro"
+        android:layout_gravity="center"
+        android:text="Đăng xuất khỏi L02 MOVIE"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="19dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+    <TextView
+        android:fontFamily="@font/sf_pro"
+        android:layout_gravity="center"
+        android:text="Bạn có chắc sẽ đăng xuất khỏi tài khoản \nnày?"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@color/gray"
+        android:textSize="17dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="25dp"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp">
+      <TextView
+          android:id="@+id/btnCancel"
+          android:fontFamily="sans-serif-medium"
+          android:layout_gravity="center"
+          android:text="Bỏ qua"
+          android:gravity="center"
+          android:textColor="@color/white"
+          android:textSize="15dp"
+          android:background="@drawable/custom_background_white_border"
+          android:layout_width="130dp"
+          android:layout_height="40dp"/>
+
+        <TextView
+            android:id="@+id/btnOK"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/custom_background_white"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="Đồng ý"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+    </LinearLayout>
+</LinearLayout>

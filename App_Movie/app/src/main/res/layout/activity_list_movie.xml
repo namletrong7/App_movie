@@ -8,18 +8,30 @@
     android:background="@color/black"
     tools:context=".Home.ListMovieActivity">
 
-    <TextView
+    <FrameLayout
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/icon_left_row"
-        android:paddingLeft="20dp"
-        android:text="THỊNH HÀNH"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="20dp" />
+        android:layout_height="40dp">
+
+        <TextView
+            android:fontFamily="@font/baloo_da"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Tình cảm"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+        <ImageView
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/icon_left_row"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+    </FrameLayout>
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </LinearLayout>

@@ -10,14 +10,13 @@
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/imgThumbnail"
         android:layout_weight="1"
-        android:scaleX="1.5"
-        android:scaleY="1.5"
+        android:scaleType="fitXY"
         android:layout_gravity="center"
-        app:riv_corner_radius="10dp"
+        app:riv_corner_radius="2dp"
         android:src="@drawable/poster_phim"
         android:layout_marginRight="2dp"
         android:layout_width="100dp"
-        android:layout_height="170dp"/>
+        android:layout_height="150dp"/>
 
 
 

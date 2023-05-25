@@ -81,4 +81,5 @@ public class movieAdapter extends  RecyclerView.Adapter<movieAdapter.movieViewHo
 
         }
     }
+
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginLeft="45dp"
+    android:layout_marginRight="45dp"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/custom_background_gray"
+    android:layout_height="wrap_content">
+    <View
+        android:background="#FFFF66"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="#555555"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_no_connection"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginVertical="20dp"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center"
+        android:text="Mất kết nối internet \n Vui lòng kiểm tra lại kết nối internet của bạn"
+        android:textColor="@color/white"
+        android:textSize="17dp"
+        android:textStyle="bold" />
+</LinearLayout>

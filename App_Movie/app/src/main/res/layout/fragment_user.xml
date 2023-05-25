@@ -13,66 +13,72 @@
         android:layout_height="match_parent">
 
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:layout_height="wrap_content" >
-            <ImageView
-                android:layout_gravity="center_vertical"
-                android:layout_width="30dp"
-                android:layout_marginLeft="5dp"
-                android:src="@drawable/icon_left_row"
-                android:backgroundTint="@color/white"
-                android:layout_height="30dp"/>
             <TextView
+                android:fontFamily="sans-serif-medium"
                 android:text="Tài Khoản"
                 android:textColor="@color/white"
-                android:textSize="27dp"
-                android:textAlignment="center"
+                android:textSize="23dp"
+                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"/>
-        </LinearLayout>
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="80dp">
-            <androidx.cardview.widget.CardView
-                app:cardBackgroundColor="#c0c0c0"
-                app:cardCornerRadius="10dp"
-                android:layout_margin="5dp"
-                android:alpha="0.3"
-                android:layout_width="match_parent"
-                android:layout_height="70dp">
-            </androidx.cardview.widget.CardView>
+        </FrameLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_height="match_parent" >
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/imgUserTaiKhoan"
-                    android:layout_width="50dp"
+                <FrameLayout
                     android:layout_gravity="center"
-                    android:src="@drawable/poster_phim"
-                    android:layout_marginStart="20dp"
-                    app:civ_border_color="@color/white"
-                    app:civ_border_width="1dp"
-                    android:layout_height="50dp"/>
+                    android:layout_width="200dp"
+                    android:layout_height="170dp">
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/imgAvatarUser"
+                        android:layout_width="150dp"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/poster_movie"
+                        app:riv_corner_radius="7dp"
+                        android:layout_height="150dp"/>
+                    <ImageView
+                        android:id="@+id/imgChangeAvatar"
+                        android:layout_marginLeft="170dp"
+                        android:layout_marginBottom="0dp"
+                        android:layout_gravity="bottom"
+                        android:src="@drawable/pen"
+                        android:layout_width="30dp"
+                        android:tint="@color/white"
+                        android:layout_height="30dp"/>
+                </FrameLayout>
 
                 <TextView
-                    android:id="@+id/tvSDT"
-                    android:layout_width="match_parent"
+                    android:id="@+id/tvUserName"
+                    android:fontFamily="@font/sf_pro"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:fontFamily="sans-serif-thin"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="40dp"
-                    android:text="0337356550"
+                    android:text="Lê Trọng Nam"
                     android:textColor="@color/white"
-                    android:textSize="17dp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
-
+                <TextView
+                    android:id="@+id/tvPhoneNumber"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/sf_pro"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="0337356550"
+                    android:textColor="@color/gray"
+                    android:textSize="15dp"
+                    android:textStyle="normal" />
             </LinearLayout>
-        </FrameLayout>
+
         <LinearLayout
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="50dp">
@@ -83,11 +89,11 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"/>
             <TextView
+                android:fontFamily="@font/sf_pro"
                 android:drawableRight="@drawable/right_row"
-                android:id="@+id/tvThonTinTaiKhoan"
+                android:id="@+id/tvInforAccount"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fontFamily="sans-serif-thin"
                 android:gravity="center_vertical"
                 android:paddingLeft="40dp"
                 android:text="Thông tin tài khoản"
@@ -95,6 +101,14 @@
                 android:textSize="15dp"
                 android:textStyle="bold" />
         </LinearLayout>
+        <View
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/custom_background_gray"
+            android:layout_width="match_parent"
+            android:layout_height="1dp">
+
+        </View>
         <LinearLayout
             android:layout_marginTop="4dp"
             android:orientation="horizontal"
@@ -107,10 +121,11 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"/>
             <TextView
+                android:fontFamily="@font/sf_pro"
+                android:id="@+id/tvMyfavorite"
                 android:drawableRight="@drawable/right_row"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fontFamily="sans-serif-thin"
                 android:gravity="center_vertical"
                 android:paddingLeft="40dp"
                 android:text="Danh sách của tôi"
@@ -118,6 +133,14 @@
                 android:textSize="15dp"
                 android:textStyle="bold" />
         </LinearLayout>
+        <View
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/custom_background_gray"
+            android:layout_width="match_parent"
+            android:layout_height="1dp">
+
+        </View>
         <LinearLayout
             android:layout_marginTop="4dp"
             android:orientation="horizontal"
@@ -134,7 +157,7 @@
                 android:id="@+id/tvLichSuXem"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fontFamily="sans-serif-thin"
+                android:fontFamily="@font/sf_pro"
                 android:gravity="center_vertical"
                 android:paddingLeft="40dp"
                 android:text="Lịch sử xem"
@@ -142,6 +165,14 @@
                 android:textSize="15dp"
                 android:textStyle="bold" />
         </LinearLayout>
+        <View
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/custom_background_gray"
+            android:layout_width="match_parent"
+            android:layout_height="1dp">
+
+        </View>
         <LinearLayout
             android:layout_marginTop="4dp"
             android:orientation="horizontal"
@@ -149,16 +180,17 @@
             android:layout_height="50dp">
             <ImageView
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/icon_device"
+                android:src="@drawable/ic_phone_device"
                 android:layout_width="25dp"
                 android:layout_marginStart="10dp"
-                android:layout_height="25dp"/>
+                android:layout_height="25dp"
+                app:tint="@color/white" />
             <TextView
                 android:drawableRight="@drawable/right_row"
                 android:id="@+id/tvDevice"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fontFamily="sans-serif-thin"
+                android:fontFamily="@font/sf_pro"
                 android:gravity="center_vertical"
                 android:paddingLeft="40dp"
                 android:text="Quản lý thiết bị"
@@ -166,6 +198,14 @@
                 android:textSize="15dp"
                 android:textStyle="bold" />
         </LinearLayout>
+        <View
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/custom_background_gray"
+            android:layout_width="match_parent"
+            android:layout_height="1dp">
+
+        </View>
         <LinearLayout
             android:layout_marginTop="4dp"
             android:orientation="horizontal"
@@ -181,7 +221,7 @@
                 android:drawableRight="@drawable/right_row"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fontFamily="sans-serif-thin"
+                android:fontFamily="@font/sf_pro"
                 android:gravity="center_vertical"
                 android:paddingLeft="40dp"
                 android:text="Điều khoản sử dụng"
@@ -189,6 +229,14 @@
                 android:textSize="15dp"
                 android:textStyle="bold" />
         </LinearLayout>
+        <View
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/custom_background_gray"
+            android:layout_width="match_parent"
+            android:layout_height="1dp">
+
+        </View>
         <LinearLayout
             android:layout_marginTop="4dp"
             android:orientation="horizontal"
@@ -205,7 +253,7 @@
                 android:drawableRight="@drawable/right_row"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fontFamily="sans-serif-thin"
+                android:fontFamily="@font/sf_pro"
                 android:gravity="center_vertical"
                 android:paddingLeft="40dp"
                 android:text="Trung tâm hỗ trợ"
@@ -213,6 +261,14 @@
                 android:textSize="15dp"
                 android:textStyle="bold" />
         </LinearLayout>
+        <View
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/custom_background_gray"
+            android:layout_width="match_parent"
+            android:layout_height="1dp">
+
+        </View>
         <LinearLayout
             android:layout_marginTop="4dp"
             android:orientation="horizontal"
@@ -231,14 +287,22 @@
                 android:id="@+id/tvGopY"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fontFamily="sans-serif-thin"
+                android:fontFamily="@font/sf_pro"
                 android:gravity="center_vertical"
                 android:paddingLeft="40dp"
                 android:text="Góp ý"
                 android:textColor="@color/white"
                 android:textSize="15dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
         </LinearLayout>
+        <View
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/custom_background_gray"
+            android:layout_width="match_parent"
+            android:layout_height="1dp">
+
+        </View>
 
         <LinearLayout
             android:layout_marginTop="4dp"
@@ -254,10 +318,10 @@
                 android:src="@drawable/icon_infor" />
 
             <TextView
-                android:drawableRight="@drawable/right_row"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fontFamily="sans-serif-thin"
+                android:drawableRight="@drawable/right_row"
+                android:fontFamily="@font/sf_pro"
                 android:gravity="center_vertical"
                 android:paddingLeft="40dp"
                 android:text="Về ứng dụng"
@@ -265,6 +329,14 @@
                 android:textSize="15dp"
                 android:textStyle="bold" />
         </LinearLayout>
+        <View
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/custom_background_gray"
+            android:layout_width="match_parent"
+            android:layout_height="1dp">
+
+        </View>
         <LinearLayout
             android:layout_marginTop="4dp"
             android:orientation="horizontal"
@@ -278,10 +350,10 @@
                 android:layout_height="25dp"/>
             <TextView
                 android:drawableRight="@drawable/right_row"
-                android:id="@+id/tvDangXuat"
+                android:id="@+id/tvSignOut"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fontFamily="sans-serif-thin"
+                android:fontFamily="@font/sf_pro"
                 android:gravity="center_vertical"
                 android:paddingLeft="40dp"
                 android:text="Đăng xuất"

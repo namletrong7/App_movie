@@ -13,143 +13,182 @@
   <TextView
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:drawableLeft="@drawable/icon_left_row"
       android:text="Đăng ký"
-      android:textAlignment="center"
+      android:gravity="center"
       android:textColor="@color/white"
       android:textSize="20dp"
       app:drawableTint="@color/white" />
 
-  <ImageView
-      android:layout_width="match_parent"
-      android:layout_height="200dp"
-      android:layout_marginTop="10dp"
-      android:scaleType="fitXY"
-      android:src="@drawable/preview" />
-
-
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
+  <com.airbnb.lottie.LottieAnimationView
+      android:id="@+id/lotie_timKiem"
       android:layout_gravity="center"
-      android:layout_marginLeft="30dp"
-      android:layout_marginTop="50dp"
-      android:layout_marginRight="30dp"
-      android:gravity="center"
-      android:orientation="vertical">
+      android:layout_marginTop="20dp"
+      android:layout_width="200dp"
+      android:layout_height="200dp"
+      android:scaleType="fitXY"
+      app:lottie_autoPlay="true"
+      app:lottie_loop="true"
+      app:lottie_rawRes="@raw/sign_up"
+      />
 
-    <EditText
-        android:id="@+id/edtPhoneNumber"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/custom_background_white_border"
-        android:drawableLeft="@drawable/icon_phone_number"
-        android:drawablePadding="20dp"
-        android:drawableTint="@color/white"
-        android:drawableTintMode="multiply"
-        android:hint="Số điện thoại"
-        android:inputType="phone"
-        android:lines="1"
-        android:paddingLeft="10dp"
-        android:textColor="@color/white"
-        android:textColorHint="#777777" />
-
-    <FrameLayout
+  <FrameLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:layout_gravity="center"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:gravity="center"
+        android:orientation="vertical">
 
       <EditText
-          android:id="@+id/edtPassword"
+          android:id="@+id/edtPhoneNumber"
+          android:fontFamily="@font/baloo_da"
           android:layout_width="match_parent"
           android:layout_height="50dp"
           android:background="@drawable/custom_background_white_border"
-          android:drawableLeft="@drawable/icon_key"
+          android:drawableLeft="@drawable/icon_phone_number"
           android:drawablePadding="20dp"
           android:drawableTint="@color/white"
           android:drawableTintMode="multiply"
-          android:hint="Mật khẩu"
-          android:inputType="textPassword"
+          android:hint="Số điện thoại"
+          android:inputType="phone"
           android:lines="1"
           android:paddingLeft="10dp"
           android:textColor="@color/white"
           android:textColorHint="#777777" />
-
-      <ImageView
-          android:id="@+id/imgShowPass"
-          android:layout_width="30dp"
-          android:layout_height="30dp"
-          android:layout_gravity="center_vertical"
-          android:layout_marginLeft="270dp"
-          android:scaleType="fitXY"
-          android:src="@drawable/icon_eye_show" />
-
-    </FrameLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp"
-        android:layout_height="wrap_content">
-      <CheckBox
-          android:buttonTint="@color/white"
-          android:layout_width="50dp"
-          android:scaleType="fitXY"
-          android:layout_height="50dp"/>
       <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_gravity="center_horizontal"
-          android:paddingTop="15dp"
-          android:gravity="center_vertical"
-          android:text="Tôi từ 18 tuổi trở lên"
-          android:textColor="@color/white"
-          android:textSize="15dp" />
-    </LinearLayout>
+          android:id="@+id/tvMessagePhone"
+          android:textAlignment="textEnd"
+          android:fontFamily="@font/baloo_da"
+          android:textSize="15dp"
+          android:textColor="#FF0000"
+          android:text="số điện thoại có 10 chữ số"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"/>
 
-    <TextView
-        android:id="@+id/btnSignUp"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/custom_background_gray"
-        android:paddingTop="10dp"
-        android:text="Đăng ký"
-        android:textAlignment="center"
-        android:textColor="#999999"
-        android:textSize="17dp"
-        android:textStyle="bold" />
+      <FrameLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/edtPassword"
+            android:fontFamily="@font/baloo_da"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/custom_background_white_border"
+            android:drawableLeft="@drawable/icon_key_khoa"
+            android:drawablePadding="20dp"
+            android:drawableTint="@color/white"
+            android:drawableTintMode="multiply"
+            android:hint="Mật khẩu"
+            android:inputType="textPassword"
+            android:lines="1"
+            android:paddingLeft="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="#777777" />
+
+        <ImageView
+            android:id="@+id/imgShowPass"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="270dp"
+            android:scaleType="fitXY"
+            app:tint="@color/white"
+            android:src="@drawable/icon_eye_show" />
+
+      </FrameLayout>
+      <TextView
+          android:id="@+id/tvMessagePass"
+          android:textAlignment="textEnd"
+          android:textSize="15dp"
+          android:fontFamily="@font/baloo_da"
+          android:textColor="#FF0000"
+          android:text="Mật khẩu tối thiểu 6 ký tự"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"/>
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:orientation="horizontal"
+          android:layout_marginTop="20dp"
+          android:layout_height="wrap_content">
+        <CheckBox
+            android:buttonTint="@color/white"
+            android:layout_width="50dp"
+            android:scaleType="fitXY"
+            android:layout_height="50dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="15dp"
+            android:fontFamily="@font/baloo_da"
+            android:gravity="center_vertical"
+            android:text="Tôi từ 18 tuổi trở lên"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+      </LinearLayout>
 
       <TextView
-          android:layout_width="wrap_content"
+          android:id="@+id/btnSignUp"
+          android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_gravity="center_horizontal"
-          android:layout_marginLeft="10dp"
-          android:layout_marginTop="10dp"
-          android:gravity="center_vertical"
-          android:text="Bạn đã có tài khoản?"
-          android:textColor="@color/white"
-          android:textSize="15dp" />
-
-      <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_gravity="left"
-          android:layout_marginLeft="10dp"
-          android:layout_marginTop="10dp"
-          android:scaleType="fitXY"
-          android:text="Đăng nhập ngay"
-          android:textColor="@color/white"
-          android:textSize="16dp"
+          android:layout_marginTop="20dp"
+          android:fontFamily="@font/baloo_da"
+          android:background="@drawable/custom_background_green"
+          android:gravity="center"
+          android:paddingHorizontal="10dp"
+          android:paddingVertical="10dp"
+          android:text="Đăng ký"
+          android:textColor="#FFFFFF"
+          android:textSize="17dp"
           android:textStyle="bold" />
+
+      <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="50dp"
+          android:layout_gravity="center_horizontal"
+          android:layout_marginTop="20dp"
+          android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/baloo_da"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="Bạn đã có tài khoản?"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:fontFamily="@font/baloo_da"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="fitXY"
+            android:text="Đăng nhập ngay"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+      </LinearLayout>
     </LinearLayout>
-  </LinearLayout>
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/tienTrinh"
+        android:layout_gravity="center"
+        android:layout_width="200dp"
+        android:layout_height="100dp"/>
+  </FrameLayout>
+
   <ImageView
       android:layout_gravity="center_horizontal"
       android:layout_marginTop="100dp"

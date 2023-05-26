@@ -1,42 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Home.TiViFragment"
-    android:layout_width="match_parent"
-    android:background="@color/black"
-    android:layout_height="match_parent">
     <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".Home.TiViFragment"
         android:layout_width="match_parent"
+        android:background="@color/black"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="10"
         >
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/ry_Categorychannel"
-            android:layout_marginTop="55dp"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"/>
         <FrameLayout
+            android:layout_marginTop="50dp"
             android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_height="match_parent">
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/ry_channel"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+            android:layout_height="250dp">
+            <com.google.android.exoplayer2.ui.PlayerView
+                android:id="@+id/playerView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/ry_AllChannel"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="250dp"/>
+            <ImageView
+                android:id="@+id/imgFullScreen"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="220dp"
+                android:layout_gravity="right"
+                android:src="@drawable/icon_full_screen" />
         </FrameLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="100dp"/>
+     <TextView
+         android:layout_marginTop="10dp"
+         android:text="Danh sách kênh"
+         android:textColor="@color/white"
+         android:textSize="17dp"
+         android:paddingLeft="20dp"
+         android:fontFamily="@font/sf_pro"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ry_Categorychannel"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+     <LinearLayout
+         android:orientation="vertical"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent">
+
+         <FrameLayout
+             android:layout_width="match_parent"
+             android:layout_marginTop="10dp"
+             android:layout_height="match_parent">
+             <androidx.recyclerview.widget.RecyclerView
+                 android:id="@+id/ry_channel"
+                 android:layout_marginLeft="10dp"
+                 android:layout_marginRight="10dp"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"/>
+             <androidx.recyclerview.widget.RecyclerView
+                 android:id="@+id/ry_AllChannel"
+                 android:layout_marginLeft="10dp"
+                 android:layout_marginRight="10dp"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"/>
+         </FrameLayout>
+         <View
+             android:layout_width="match_parent"
+             android:layout_height="100dp"/>
+     </LinearLayout>
+
+    </ScrollView>
 
     </LinearLayout>
-</ScrollView>
+

@@ -84,6 +84,7 @@ public class HomeActivity extends AppCompatActivity {
     String checkLogIn = "1";
     ArrayList<device> listDevice;
     FirebaseDatabase database;
+
     @SuppressLint("MissingInflatedId")
 
     @Override
@@ -119,6 +120,7 @@ public class HomeActivity extends AppCompatActivity {
         active = homeFragment;
         mTransactiont.addToBackStack(null);
 
+
         tvPhone = findViewById(R.id.tvPhoneNumber);
         imgAvatar = findViewById(R.id.imgAvatar);
 
@@ -128,7 +130,7 @@ public class HomeActivity extends AppCompatActivity {
         tvTimKiem = (TextView) findViewById(R.id.tvTimKiem);
         tvCaNhan = (TextView) findViewById(R.id.tvCaNhan);
 
-        lotie_trangChu=findViewById(R.id.lotie_trangChu);
+        lotie_trangChu = findViewById(R.id.lotie_trangChu);
         lotie_TruyenHinh = findViewById(R.id.lotie_TruyenHinh);
         lotie_timKiem = findViewById(R.id.lotie_timKiem);
         lotie_caNhan = findViewById(R.id.lotie_caNhan);
@@ -139,15 +141,16 @@ public class HomeActivity extends AppCompatActivity {
         layOutTruyenHinh = findViewById(R.id.layOutTruyenHinh);
         layout_toolbar = findViewById(R.id.layout_toolbar);
 
+
     }
 
     public void event() {
         imgAvatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checkLogIn = "0";
-//                Intent intent = new Intent(HomeActivity.this, PLayShortVideo.class);
-//                startActivity(intent);
+
+                Intent intent = new Intent(HomeActivity.this, PLayShortVideo.class);
+                startActivity(intent);
             }
         });
     }
@@ -164,6 +167,7 @@ public class HomeActivity extends AppCompatActivity {
 
     public void setBottomNavigation() {
         layOutTrangChu.setOnClickListener(v -> {
+            TiViFragment.releasePlayer();
             if (select != 1) {
                 layout_toolbar.setVisibility(View.VISIBLE);
                 showFragment(homeFragment);
@@ -178,7 +182,8 @@ public class HomeActivity extends AppCompatActivity {
                 select = 1;
             }
         });
-        layOutTruyenHinh.setOnClickListener(v -> {
+        layOutTruyenHinh.setOnClickListener(v -> {;
+            TiViFragment.playChannel(this);
             if (select != 2) {
                 layout_toolbar.setVisibility(View.VISIBLE);
                 showFragment(tiviFragment);
@@ -196,7 +201,9 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
         layoutTimKiem.setOnClickListener(v -> {
+            TiViFragment.releasePlayer();
             if (select != 3) {
+
                 layout_toolbar.setVisibility(View.GONE);
                 showFragment(searchFragment);
                 lotie_trangChu.setColorFilter(ContextCompat.getColor(this, R.color.gray), android.graphics.PorterDuff.Mode.MULTIPLY);
@@ -211,9 +218,9 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
         layOutCaNhan.setOnClickListener(v -> {
+            TiViFragment.releasePlayer();
             if (select != 4) {
                 layout_toolbar.setVisibility(View.GONE);
-
                 showFragment(userFragment);
 
                 lotie_trangChu.setColorFilter(ContextCompat.getColor(this, R.color.gray), android.graphics.PorterDuff.Mode.MULTIPLY);
@@ -239,36 +246,33 @@ public class HomeActivity extends AppCompatActivity {
     public void getUserInfor() {
         RequestQueue requestQueue = Volley.newRequestQueue(HomeActivity.this);
         String url = Server.getUserInfor;
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONArray jsonArray = new JSONArray(response);
-                            for (int i = 0; i <= jsonArray.length(); i++) {
-                                JSONObject jsonObject = jsonArray.getJSONObject(i);
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONArray jsonArray = new JSONArray(response);
+                    for (int i = 0; i <= jsonArray.length(); i++) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
 //                                String  phone = jsonObject.getString("phoneNumber");
 //                                String pass = jsonObject.getString("password");
 //                                userName= jsonObject.getString("nameUser");
 //                                String sex = jsonObject.getString("sex");
 //                                String birthday = jsonObject.getString("birthday");
-                                String avatar = jsonObject.getString("avatar");
-                                String linkAvatar = Server.getAvatar + avatar;
-                                Picasso.get().load(linkAvatar).into(imgAvatar);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
+                        String avatar = jsonObject.getString("avatar");
+                        String linkAvatar = Server.getAvatar + avatar;
+                        Picasso.get().load(linkAvatar).into(imgAvatar);
                     }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-        ) {
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 HashMap<String, String> params = new HashMap<>();
@@ -312,6 +316,9 @@ public class HomeActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         getUserInfor();
+        if(tiviFragment.isHidden()==false){
+            TiViFragment.playChannel(this);
+        }
 
     }
 
@@ -342,4 +349,8 @@ public class HomeActivity extends AppCompatActivity {
 //
 //    }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }

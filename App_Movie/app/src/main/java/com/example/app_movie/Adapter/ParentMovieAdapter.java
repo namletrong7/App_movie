@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -61,8 +62,17 @@ public class ParentMovieAdapter extends RecyclerView.Adapter<ParentMovieAdapter.
     @Override
     public void onBindViewHolder(@NonNull ParentMovieAdapter.movieViewHolder holder, @SuppressLint("RecyclerView") int position) {
       String category= listCategory.get(position).getCategory();
-      ArrayList<movie> listMovie = listCategory.get(position).getListMovie();
+      ArrayList<movie> listMovie = new ArrayList<>();
+        listMovie=listCategory.get(position).getListMovie();
+        int number=listMovie.size();
       holder.tvCategory.setText(category);
+      holder.tvCategory.setOnLongClickListener(new View.OnLongClickListener() {
+          @Override
+          public boolean onLongClick(View v) {
+              Toast.makeText(context, number+"", Toast.LENGTH_SHORT).show();
+              return  true;
+          }
+      });
       movieAdapter adapterMovie = new movieAdapter(context, listMovie);
       holder.ry_movie.setAdapter(adapterMovie);
       holder.ry_movie.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));

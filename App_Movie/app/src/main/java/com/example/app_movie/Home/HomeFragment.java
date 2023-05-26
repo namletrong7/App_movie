@@ -90,7 +90,7 @@ public class HomeFragment extends Fragment {
         getCategory();
         getMovie();
         getListFavoriteMovie();
-        new MyAsyncTask().execute("");
+        getMovieThinhHanh();
         getDataChannel();
         return view;
     }
@@ -125,6 +125,7 @@ public class HomeFragment extends Fragment {
 //
 //        );
 //        requestQueue.add(jsonArrayRequest);
+        listCategory.clear();
         listCategory.add("Hanh dong");
         listCategory.add("Tinh cam");
         listCategory.add("Phim bo");
@@ -142,13 +143,17 @@ public class HomeFragment extends Fragment {
         listCategoryMovie.clear();
         for (int i = 0; i < listCategory.size(); i++) {
             ArrayList<movie> listMovie = new ArrayList<>();
-            getMovieByCategory(listCategory.get(i).toString(), listMovie);
+        //    getMovieByCategory(listCategory.get(i).toString(), listMovie);
             listCategoryMovie.add(new categoryMovie(listCategory.get(i).toString(), listMovie));
             Log.d("KMA", listMovie.size() + " mam");
             adapterParent.notifyDataSetChanged();
 
         }
-
+      for(int i= 0 ; i< listCategoryMovie.size();i++){
+          ArrayList<movie> listMovie = new ArrayList<>();
+          getMovieByCategory(listCategoryMovie.get(i).getCategory(), listMovie);
+          listCategoryMovie.get(i).setListMovie(listMovie);
+      }
 
     }
 
@@ -250,22 +255,7 @@ public class HomeFragment extends Fragment {
 
     }
 
-    private class MyAsyncTask extends AsyncTask<String, Integer, String> {
-        private boolean mIsRunning = true;
 
-        @Override
-        protected String doInBackground(String... strings) {
-            getMovieThinhHanh();
-            getCategory();  // lấy danh sách thể loại phim
-            //      getMovie();
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-
-        }
-    }
 
     public void getDataChannel() {
         String url = Server.getChannel;
@@ -361,7 +351,12 @@ public class HomeFragment extends Fragment {
 
     private void init() {
         imgBackground = view.findViewById(R.id.imgBackground);
-
+//        view.findViewById(R.id.tvThinhHanh).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                getMovie();
+//            }
+//        });
         btn = view.findViewById(R.id.btn);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -448,7 +443,7 @@ public class HomeFragment extends Fragment {
 
     @Override
     public void onStart() {
-        getMovie();
         super.onStart();
     }
+
 }

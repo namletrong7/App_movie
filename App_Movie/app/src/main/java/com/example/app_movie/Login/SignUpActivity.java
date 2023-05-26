@@ -99,6 +99,7 @@ Runnable runnable;
                     public void onResponse(String response) {
                         if(response.toString().equals("1")){
                               notifycation_signIn("",150);
+                              return ;
                         }else{
                                sendOTP();
                         }

@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.app_movie.Home.TiViFragment;
 import com.example.app_movie.Model.channel;
 import com.example.app_movie.PLayVideo.PlayChannelActivity;
@@ -50,12 +51,18 @@ public class channelAdapter extends  RecyclerView.Adapter<channelAdapter.channel
         holder.imgChannel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, PlayChannelActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("linkChannel",list.get(position).getLinkChannel());
-                bundle.putString("nameChannel",list.get(position).getNameChannel());
-                intent.putExtras(bundle);
-                context.startActivity(intent);
+                ;
+//                Intent intent = new Intent(context, PlayChannelActivity.class);
+//                Bundle bundle = new Bundle();
+//                bundle.putString("linkChannel",list.get(position).getLinkChannel());
+//                bundle.putString("nameChannel",list.get(position).getNameChannel());
+//                intent.putExtras(bundle);
+//                context.startActivity(intent);
+                TiViFragment.releasePlayer();
+                holder.loading.setVisibility(View.VISIBLE);
+                TiViFragment.linkChannel=list.get(position).getLinkChannel();
+                TiViFragment.playChannel(context);
+
             }
         });
     }
@@ -67,11 +74,12 @@ public class channelAdapter extends  RecyclerView.Adapter<channelAdapter.channel
 
     public class channelViewHolder extends RecyclerView.ViewHolder {
        public ImageView imgChannel;
-
+       public LottieAnimationView loading ;
         public channelViewHolder(@NonNull View itemView) {
             super(itemView);
             imgChannel=itemView.findViewById(R.id.imgChannel);
-
+            loading=itemView.findViewById(R.id.loading);
+            loading.setVisibility(View.GONE);
         }
     }
 }

@@ -50,8 +50,8 @@
                         android:layout_gravity="bottom"
                         android:src="@drawable/pen"
                         android:layout_width="30dp"
-                        android:tint="@color/white"
-                        android:layout_height="30dp"/>
+                        android:layout_height="30dp"
+                        app:tint="@color/white" />
                 </FrameLayout>
 
                 <TextView
@@ -361,12 +361,39 @@
                 android:textSize="15dp"
                 android:textStyle="bold" />
         </LinearLayout>
-        <ImageView
-            android:layout_gravity="center_horizontal"
-            android:layout_width="100dp"
-            android:layout_marginTop="50dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/logo"
-            android:layout_height="100dp"/>
+        <View
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/custom_background_gray"
+            android:layout_width="match_parent"
+            android:layout_height="1dp">
+
+        </View>
+        <LinearLayout
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <ImageView
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_chat_gpt"
+                android:layout_width="25dp"
+                android:layout_marginStart="10dp"
+                android:layout_height="25dp"/>
+            <TextView
+                android:drawableRight="@drawable/right_row"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/sf_pro"
+                android:gravity="center_vertical"
+                android:paddingLeft="40dp"
+                android:text="Chat GPT_Open AI"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+      <View
+          android:layout_width="match_parent"
+          android:layout_height="100dp"/>
     </LinearLayout>
 </ScrollView>

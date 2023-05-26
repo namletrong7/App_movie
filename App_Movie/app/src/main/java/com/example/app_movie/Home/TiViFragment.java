@@ -1,6 +1,8 @@
 package com.example.app_movie.Home;
 
 import android.app.VoiceInteractor;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -15,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Switch;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -25,8 +28,16 @@ import com.example.app_movie.Adapter.TvAdapter;
 import com.example.app_movie.Adapter.channelAdapter;
 import com.example.app_movie.Model.channel;
 import com.example.app_movie.Model.movie;
+import com.example.app_movie.PLayVideo.PlayChannelActivity;
 import com.example.app_movie.R;
 import com.example.app_movie.Util.Server;
+import com.google.android.exoplayer2.MediaItem;
+import com.google.android.exoplayer2.Player;
+import com.google.android.exoplayer2.SimpleExoPlayer;
+import com.google.android.exoplayer2.source.hls.HlsMediaSource;
+import com.google.android.exoplayer2.ui.PlayerView;
+import com.google.android.exoplayer2.upstream.DataSource;
+import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -43,7 +54,11 @@ public class TiViFragment extends Fragment {
     ArrayList<String> listCategory ;
     TvAdapter adapterTV ;
     Spinner spinner_category ;
-   public static ArrayList<channel> listAllChannel, listChannel ;
+    public static  SimpleExoPlayer player;
+    public static  PlayerView playerView;
+   public static  String linkChannel ="https://vips-livecdn.fptplay.net/hda1/vtv1hd_vhls.smil/chunklist_b2500000.m3u8";
+   public  HlsMediaSource mediaSource;
+    public static ArrayList<channel> listAllChannel, listChannel ;
     public static   channelAdapter adapterChannel, adapterAllChannel ;
     public static  String categoryChannel ;
     @Override
@@ -52,10 +67,26 @@ public class TiViFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_ti_vi, container, false);
         init();
+        event();
         getDataChannel();
         return view ;
     }
+    public void  event(){
+        view.findViewById(R.id.imgFullScreen).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), PlayChannelActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("linkChannel",linkChannel);
+                intent.putExtras(bundle);
+                getContext().startActivity(intent);
+            }
+        });
+    }
     public void init(){
+        player = new SimpleExoPlayer.Builder(getContext()).build();
+        playerView = view.findViewById(R.id.playerView);
+        playerView.setUseController(false);
         listCategory=new ArrayList<>();
         listCategory.add("VTV");
         listCategory.add("HTV");
@@ -82,8 +113,25 @@ public class TiViFragment extends Fragment {
         adapterAllChannel=new channelAdapter(getContext(), listAllChannel);
         ry_AllChannel.setLayoutManager(new GridLayoutManager(getContext(), 2));
         ry_AllChannel.setAdapter(adapterAllChannel);
+       // phát kênh
+
 
     }
+     public static  void playChannel(Context context){
+         player = new SimpleExoPlayer.Builder(context).build();
+         playerView.setPlayer(player);
+
+         DataSource.Factory dataSourceFactory = new DefaultHttpDataSourceFactory();
+//         HlsMediaSource mediaSource = new HlsMediaSource.Factory(dataSourceFactory).
+//                 createMediaSource(MediaItem.fromUri(linkChannel));
+         MediaItem mediaItem = MediaItem.fromUri(linkChannel);
+
+// Cập nhật đối tượng MediaItem đang được phát
+         player.setMediaItem(mediaItem);
+     //    player.setMediaSource(mediaSource);
+         player.prepare();
+         player.setPlayWhenReady(true);
+     }
     public static void setTypeChannel(){
           switch (categoryChannel){
             case "vtv":{  // chỉ lấy danh sách kênh VTV
@@ -170,4 +218,32 @@ public class TiViFragment extends Fragment {
         requestQueue.add(jsonArrayRequest);
 
     }
+    public static void releasePlayer() {
+        if (player != null) {
+
+            player.release();
+            player = null;
+            playerView.setPlayer(/* player= */ null);
+        }
+        
+        playerView.getAdViewGroup().removeAllViews();
+    }
+
+
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        releasePlayer();
+    }
+
+
+
+    @Override
+    public void onDestroy() {
+        releasePlayer();
+        super.onDestroy();
+    }
+
+
 }

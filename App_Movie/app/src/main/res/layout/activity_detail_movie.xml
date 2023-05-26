@@ -98,7 +98,7 @@
                            android:fontFamily="@font/sf_pro"
                            android:gravity="center_vertical"
                            android:text="Danh sách"
-                           android:textColor="@color/black"
+                           android:textColor="#000000"
                            android:textSize="13dp"
                            android:textStyle="bold" />
                    </LinearLayout>

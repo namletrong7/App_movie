@@ -44,7 +44,6 @@ public class PlayChannelActivity extends AppCompatActivity {
 
     public void init() {
         loading = findViewById(R.id.loading);
-        tvNameChannel = findViewById(R.id.tvNameChannel);
         playerView = findViewById(R.id.playerView);
         playerView.setUseController(false);
         findViewById(R.id.imgBack).setOnClickListener(new View.OnClickListener() {
@@ -59,16 +58,13 @@ public class PlayChannelActivity extends AppCompatActivity {
     public void playChannel() {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-       String linkChannel = bundle.getString("linkChannel");
-    //    String linkChannel="https://sgn-fpt-002-ca204.vieon.vn/afd366e9d57f0e2d030e573864ff1d0d/1682313764390/ott-vod-2022/vod/2023/04/06/95d7b8a1-b70d-4bc2-999f-12a377d4eb38/media-audio-tg-mp4a.mp4";
-        String nameChannel= bundle.getString("nameChannel");
-        tvNameChannel.setText("Bạn đang xem kênh truyền hình: "+nameChannel);
+        String linkChannel = bundle.getString("linkChannel");
 
-        SimpleExoPlayer player = new SimpleExoPlayer.Builder(this).build();
+        player = new SimpleExoPlayer.Builder(this).build();
         playerView.setPlayer(player);
 
         DataSource.Factory dataSourceFactory = new DefaultHttpDataSourceFactory();
-        HlsMediaSource mediaSource = new HlsMediaSource.Factory(dataSourceFactory).
+       HlsMediaSource mediaSource = new HlsMediaSource.Factory(dataSourceFactory).
                 createMediaSource(MediaItem.fromUri(linkChannel));
         player.setMediaSource(mediaSource);
         player.prepare();
@@ -103,5 +99,26 @@ public class PlayChannelActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        player.play();
+        super.onResume();
+    }
 
+    @Override
+    protected void onStop() {
+        releasePlayer();
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        releasePlayer();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }

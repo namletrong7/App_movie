@@ -199,7 +199,7 @@ public class DetailMovieActivity extends AppCompatActivity {
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                onBackPressed();
             }
         });
         btnSend.setOnClickListener(new View.OnClickListener() {
@@ -795,7 +795,7 @@ public class DetailMovieActivity extends AppCompatActivity {
                             notifycation("Đã thêm vào danh sách của tôi", 200);
                         } else if (response.equals("0")) {  // xóa khỏi danh sách
                             checkFavoriteMovie();
-                            notifycation("Đã gõ khỏi danh sách của tôi", 200);
+                            notifycation("Đã gỡ khỏi danh sách của tôi", 200);
 
                         }
                     }

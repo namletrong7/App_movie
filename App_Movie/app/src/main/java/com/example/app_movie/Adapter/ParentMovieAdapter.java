@@ -42,11 +42,12 @@ import java.util.Map;
 
 public class ParentMovieAdapter extends RecyclerView.Adapter<ParentMovieAdapter.movieViewHolder> {
     Context context;
-   ArrayList<categoryMovie> listCategory ;
-   //public  movieAdapter adapterMovie  ;
+    ArrayList<categoryMovie> listCategory;
+
+    //public  movieAdapter adapterMovie  ;
     public ParentMovieAdapter(Context context, ArrayList<categoryMovie> listCategory) {
         this.context = context;
-        this.listCategory= listCategory ;
+        this.listCategory = listCategory;
     }
 
 
@@ -61,21 +62,21 @@ public class ParentMovieAdapter extends RecyclerView.Adapter<ParentMovieAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ParentMovieAdapter.movieViewHolder holder, @SuppressLint("RecyclerView") int position) {
-      String category= listCategory.get(position).getCategory();
-      ArrayList<movie> listMovie = new ArrayList<>();
-        listMovie=listCategory.get(position).getListMovie();
-        int number=listMovie.size();
-      holder.tvCategory.setText(category);
-      holder.tvCategory.setOnLongClickListener(new View.OnLongClickListener() {
-          @Override
-          public boolean onLongClick(View v) {
-              Toast.makeText(context, number+"", Toast.LENGTH_SHORT).show();
-              return  true;
-          }
-      });
-      movieAdapter adapterMovie = new movieAdapter(context, listMovie);
-      holder.ry_movie.setAdapter(adapterMovie);
-      holder.ry_movie.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+        String category = listCategory.get(position).getCategory();
+        ArrayList<movie> listMovie = new ArrayList<>();
+        listMovie = listCategory.get(position).getListMovie();
+        int number = listMovie.size();
+        holder.tvCategory.setText(category);
+        holder.tvCategory.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Toast.makeText(context, number + "", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
+        movieAdapter adapterMovie = new movieAdapter(context, listMovie);
+        holder.ry_movie.setAdapter(adapterMovie);
+        holder.ry_movie.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
 
     }
 
@@ -96,50 +97,5 @@ public class ParentMovieAdapter extends RecyclerView.Adapter<ParentMovieAdapter.
         }
     }
 
-//    public void getMovie(String category) {
-//        RequestQueue requestQueue = Volley.newRequestQueue(context.getApplicationContext());
-//        StringRequest stringRequest = new StringRequest(Request.Method.POST, Server.getMovieByCategory,
-//                response -> {
-//                    if (response != null) {
-//
-//                        list.clear();
-//                        try {
-//                            JSONArray jsonArray = new JSONArray(response);
-//                            for (int i = 0; i <= jsonArray.length(); i++) {
-//                                JSONObject jsonObject = jsonArray.getJSONObject(i);
-//                                int idMovie = jsonObject.getInt("idMovie");
-//                                String nameMovie = jsonObject.getString("nameMovie");
-//                                String thumbnailMovie = jsonObject.getString("thumbnailMovie");
-//                                String coverMovie = jsonObject.getString("coverMovie");
-//                                String contentMoive = jsonObject.getString("contentMoive");
-//                                String categoryMovie = jsonObject.getString("categoryMovie");
-//                                String yearMovie = jsonObject.getString("yearMovie");
-//                                String director = jsonObject.getString("director");
-//                                int view = jsonObject.getInt("view");
-//                                movie mv = new movie(idMovie, nameMovie, thumbnailMovie, coverMovie, contentMoive, categoryMovie, yearMovie, director, view);
-//                                list.add(mv);
-//                            }
-//                            adapterMovie.notifyDataSetChanged();
-//
-//                        } catch (JSONException e) {
-//                            e.printStackTrace();
-//                        }
-//
-//                    }
-//                },
-//                error -> {
-//
-//                }
-//
-//        ){
-//            @Override
-//            protected Map<String, String> getParams() throws AuthFailureError {
-//                HashMap<String, String> params = new HashMap<>();
-//                params.put("categoryMovie",category );
-//                return params;
-//            }
-//        };
-//        requestQueue.add(stringRequest);
-//    }
 
 }

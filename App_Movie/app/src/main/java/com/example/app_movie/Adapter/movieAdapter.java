@@ -51,7 +51,7 @@ public class movieAdapter extends  RecyclerView.Adapter<movieAdapter.movieViewHo
         movie Movie=list.get(position);
         int id =Movie.getIdMovie();
         String linkThumbnail= Server.getThumbnail+Movie.getThumbnailMovie();
-        Picasso.get().load(linkThumbnail).into(holder.imgThumbnail);
+        Picasso.get().load(linkThumbnail).placeholder(R.drawable.ic_loading).into(holder.imgThumbnail);
         holder.imgThumbnail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

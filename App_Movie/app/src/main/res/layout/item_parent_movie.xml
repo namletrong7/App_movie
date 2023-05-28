@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:background="@color/black"
@@ -20,16 +21,18 @@
                 android:layout_weight="9.5"
                 android:fontFamily="sans-serif-medium"
                 android:paddingLeft="16dp"
+                android:layout_gravity="center"
                 android:text="THỊNH HÀNH"
                 android:textColor="@color/white"
                 android:textSize="18dp"
                 android:textStyle="bold" />
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_weight="0.5"
-                android:src="@drawable/right_row" />
+                android:src="@drawable/menu_icon"
+                app:tint="#0FE35C" />
 
         </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView

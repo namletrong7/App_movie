@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -79,6 +80,9 @@ public class HomeFragment extends Fragment {
     View view;
     String phoneNumber, checkLogIn = "1";
 
+    int currentItems, totalItems, scrollOutItems;
+    LinearLayoutManager layoutManager4;
+    Boolean isScrolling = false;
     @RequiresApi(api = Build.VERSION_CODES.S)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -88,6 +92,31 @@ public class HomeFragment extends Fragment {
         phoneNumber = HomeActivity.phoneNumber;
         init();
         getCategory();
+   //     getMovie();
+        ry_categoryMovie.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if(newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL)
+                {
+                    isScrolling = true;
+                }
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                currentItems = layoutManager4.getChildCount();
+                totalItems = layoutManager4.getItemCount();
+                scrollOutItems = layoutManager4.findFirstVisibleItemPosition();
+
+                if(isScrolling && (currentItems + scrollOutItems == totalItems))
+                {
+                    isScrolling = false;
+                    getMovie();
+                }
+            }
+        });
         getMovie();
         getListFavoriteMovie();
         getMovieThinhHanh();
@@ -429,9 +458,11 @@ public class HomeFragment extends Fragment {
         listCategoryMovie = new ArrayList<>();
         listCategory = new ArrayList<>();
         adapterParent = new ParentMovieAdapter(getContext(), listCategoryMovie);
-        LinearLayoutManager layoutManager4 = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        layoutManager4 = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         ry_categoryMovie.setLayoutManager(layoutManager4);
         ry_categoryMovie.setAdapter(adapterParent);
+
+
     }
 
     @Override

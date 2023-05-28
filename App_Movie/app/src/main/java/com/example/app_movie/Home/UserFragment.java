@@ -141,6 +141,7 @@ public class UserFragment extends Fragment {
             dialog.dismiss();
         });
         btnOK.setOnClickListener(v -> {
+            TiViFragment.linkChannel="https://vips-livecdn.fptplay.net/hda1/vtv1hd_vhls.smil/chunklist_b2500000.m3u8";
              database.getReference("device").child(LoginActivity.dv1.getIdDevice()).removeValue();
              getActivity().finish();
              Intent intent = new Intent(getContext(), LoginActivity.class);

@@ -56,8 +56,8 @@ public class TiViFragment extends Fragment {
     Spinner spinner_category ;
     public static  SimpleExoPlayer player;
     public static  PlayerView playerView;
-   public static  String linkChannel ="https://vips-livecdn.fptplay.net/hda1/vtv1hd_vhls.smil/chunklist_b2500000.m3u8";
-   public  HlsMediaSource mediaSource;
+    public static  String linkChannel ="https://vips-livecdn.fptplay.net/hda1/vtv1hd_vhls.smil/chunklist_b2500000.m3u8";
+    public  HlsMediaSource mediaSource;
     public static ArrayList<channel> listAllChannel, listChannel ;
     public static   channelAdapter adapterChannel, adapterAllChannel ;
     public static  String categoryChannel ;
@@ -229,15 +229,11 @@ public class TiViFragment extends Fragment {
         playerView.getAdViewGroup().removeAllViews();
     }
 
-
-
     @Override
     public void onPause() {
         super.onPause();
         releasePlayer();
     }
-
-
 
     @Override
     public void onDestroy() {

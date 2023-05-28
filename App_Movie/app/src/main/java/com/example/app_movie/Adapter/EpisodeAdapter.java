@@ -48,7 +48,7 @@ public class EpisodeAdapter extends RecyclerView.Adapter<EpisodeAdapter.episodeV
            holder.tvNumberEpisode.setText("Tập "+Episode.getNumberEpisode()+". ");
            holder.tvNameEpisode.setText(Episode.getNameEpisode());
          String linkThumbnail= Server.getThumbnailEpisode+ Episode.getThumbnailEpisode();
-         Picasso.get().load(linkThumbnail).into(holder.imgThumnailEpisode);
+         Picasso.get().load(linkThumbnail).placeholder(R.drawable.ic_loading).into(holder.imgThumnailEpisode);
           holder.imgThumnailEpisode.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View v) {

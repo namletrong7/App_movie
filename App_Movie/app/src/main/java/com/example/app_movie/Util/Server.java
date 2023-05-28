@@ -1,8 +1,8 @@
 package com.example.app_movie.Util;
 
 public class Server {
-   // public static String localhost = "http://172.20.10.2:8080/movie/";  // iphone
- public static String localhost = "http://192.168.1.105:8080/movie/";  // ở nhà
+   //public static String localhost = "http://172.20.10.2:8080/movie/";  // iphone
+public static String localhost = "http://192.168.1.105:8080/movie/";  // ở nhà
    //public static String localhost = "http://192.168.2.117:8080/movie/";   // cty
    public static String getDevice = localhost + "getDevice.php";  // lấy ds thiết bị
    public static String getMovie = localhost + "getMovie.php";   // láy danh sách phim

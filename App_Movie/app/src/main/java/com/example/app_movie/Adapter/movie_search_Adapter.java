@@ -45,7 +45,7 @@ public class movie_search_Adapter extends  RecyclerView.Adapter<movie_search_Ada
         movie Movie=list.get(position);
         int id =Movie.getIdMovie();
         String linkCover= Server.getCover+Movie.getCoverMovie();
-        Picasso.get().load(linkCover).into(holder.coverMovie);
+        Picasso.get().load(linkCover).placeholder(R.drawable.ic_loading).into(holder.coverMovie);
         holder.coverMovie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

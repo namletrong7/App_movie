@@ -89,20 +89,17 @@ public class DetailMovieActivity extends AppCompatActivity {
     String phoneNumber;
     LinearLayout ly_addLike ;
 
-    FirebaseDatabase database;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_movie);
         phoneNumber = HomeActivity.phoneNumber;
-        database = FirebaseDatabase.getInstance();
-        //       phoneNumber="0977204530";
         init();
-        //  checkLogin();
         getIdMovie();
         getComment();
-        getDataMovie();
+        getInforMovie();
         getEpisode();
         getUserInfor();
         event();
@@ -259,50 +256,7 @@ public class DetailMovieActivity extends AppCompatActivity {
         });
     }
 
-    //    public void checkLogin() {
-//
-//        DeviceName.with(this).request(new DeviceName.Callback() {
-//            @Override public void onFinished(DeviceName.DeviceInfo info, Exception error) {
-//                String deviceName = info.getName();       // "Galaxy S8+
-//                database.getReference("device").addValueEventListener(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                        if (snapshot.exists()) {
-//                            for (DataSnapshot snapshot1 : snapshot.getChildren()) {
-//                                device dv = new device();
-//                                dv.setIdDevice(snapshot1.child("idDevice").getValue().toString());
-//                                dv.setNameDevice(snapshot1.child("nameDevice").getValue().toString());
-//                                dv.setPhoneNumber(snapshot1.child("phoneNumber").getValue().toString());
-//                                dv.setTimeDateSignIn(snapshot1.child("timeDateSignIn").getValue().toString());
-//                                if (dv.getPhoneNumber().equals(phoneNumber) && dv.getNameDevice().equals(deviceName)) {
-//                                    Toast.makeText(DetailMovieActivity.this, "đang đăng nhập", Toast.LENGTH_SHORT).show();
-//                                }
-//                                else{
-//                                    Toast.makeText(DetailMovieActivity.this, "Tài khoản của bạn đã được đăng xuất từ xa", Toast.LENGTH_SHORT).show();
-//                                    finish();
-//                                    Intent intent = new Intent(DetailMovieActivity.this, LoginActivity.class);
-//                                    startActivity(intent);
-//
-//                                }
-//
-//
-//                            }
-//
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    }
-//                });
-//            }
-//        });
-//
-//
-//
-//
-//    }
+
     public void sendComment() {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
@@ -460,7 +414,7 @@ public class DetailMovieActivity extends AppCompatActivity {
         request.add(stringRequest);
     }
 
-    public void getDataMovie() {  // lấy thông tin phim
+    public void getInforMovie() {  // lấy thông tin phim
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         int id = bundle.getInt("id", 0);
@@ -478,9 +432,9 @@ public class DetailMovieActivity extends AppCompatActivity {
                                 String nameplace = jsonObject.getString("nameMovie");
                                 tvNameMovie.setText(nameplace);
                                 String thumbnail = Server.getThumbnail + jsonObject.getString("thumbnailMovie");
-                                Picasso.get().load(thumbnail).into(imgThumbnail);
+                                Picasso.get().load(thumbnail).placeholder(R.drawable.ic_loading).into(imgThumbnail);
                                 String cover = Server.getCover + jsonObject.getString("coverMovie");
-                                Picasso.get().load(cover).into(imgCover);
+                                Picasso.get().load(cover).placeholder(R.drawable.ic_loading).into(imgCover);
                                 tvContent.setText("Nội dung phim: " + jsonObject.getString("contentMoive"));
                                 tvCategory.setText("Thể loại phim: " + jsonObject.getString("categoryMovie"));
                                 tvYear.setText("Phát hành: " + jsonObject.getString("yearMovie"));
